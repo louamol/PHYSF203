@@ -18,7 +18,7 @@
 
 \paragraph*{Hamiltonien.} L'Hamiltonien d'une particule de masse $m$ dans un potentiel harmonique de pulsation $\omega$ est
 \begin{equation*}
-    \hH = \frac{\hP}{2m}+\frac{1}{2}m\omega^2\hX^2.
+    \hH = \frac{\hP^2}{2m}+\frac{1}{2}m\omega^2\hX^2.
 \end{equation*}
 Ce dernier peut être généralisé à plusieurs dimensions. Pour rappel, les opérateurs de position et d'impulsion satisfont $[\hX,\hP]=i\hbar\mathbbm{1}$.
 
@@ -32,10 +32,10 @@ On peut montrer que
 \end{equation*}
 L'hermicien conjugué $\ha^\dagger$ est appellé \emph{opérateur de création}. L'Hamiltonien peut être réécrit comme
 \begin{align}
-    \hH &= \left(\ha\ha^\dagger+\frac{1}{2}\right)\\
+    \hH &= \left(\ha^\dagger\ha+\frac{1}{2}\right)\\
     &= \left(\hN+\frac{1}{2}\right)
 \end{align}
-avec $\hN\equiv\ha\ha^\dagger$. Étudier le spectre de l'Hamiltonien revient donc à étudier le spectre de $\hN$. Nous trouvons les résultats suivants:
+avec $\hN\equiv\ha^\dagger\ha$. Étudier le spectre de l'Hamiltonien revient donc à étudier le spectre de $\hN$. Nous trouvons les résultats suivants:
 \begin{enumerate}[label=\roman*)]
     \item Le spectre de $\hN$ est $\N$ et non-dégénéré. Notons $\ket{n}$ le vecteur propre associé à la valeur propre $n\in\N$.
     \item L'opérateur de création permet de monter dans les valeurs propres:

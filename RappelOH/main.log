@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2022.7.24)  4 MAY 2023 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2022.7.24)  4 MAY 2023 19:18
 entering extended mode
-**/home/louan/Documents/LaTeX/IntroMQ/Rappels/RappelTP6/main.tex
-(/home/louan/Documents/LaTeX/IntroMQ/Rappels/RappelTP6/main.tex
+**/home/louan/Documents/LaTeX/PHYSF203/RappelOH/main.tex
+(/home/louan/Documents/LaTeX/PHYSF203/RappelOH/main.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-07-04> (/home/louan/.miktex/texmfs/install/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -528,14 +528,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [2] (main.aux) ) 
 Here is how much of TeX's memory you used:
  17474 strings out of 478362
- 335749 string characters out of 2842112
+ 335685 string characters out of 2842112
  628786 words of memory out of 3000000
  35551 multiletter control sequences out of 15000+600000
  492833 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,12n,99p,607b,426s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 90i,12n,99p,599b,426s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {/home/louan/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc} </home/louan/.miktex/texmfs/data/fonts/pk/ljfour/public/bbm/dpi657/bbm10.pk></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi8.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmr8.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy6.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy8.pfb></home/louan/.miktex/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb></home/louan/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></home/louan/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb></home/louan/.miktex/texmfs/install/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (2 pages, 156392 bytes).
+Output written on main.pdf (2 pages, 156416 bytes).
 PDF statistics:
  88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
