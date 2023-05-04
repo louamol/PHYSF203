@@ -1,0 +1,184 @@
+\chapter{Juin 2022}
+
+\paragraph{Question 1} \textit{Spin 1/2.} \\
+
+Soit un spin  1/2 dont l'état à l'instant $t=0$ est
+\begin{equation}
+\vert \psi \rangle =  \frac{1}{2} \lvert \uparrow \rangle + 
+ \frac{\sqrt{3} }{2} \lvert \downarrow \rangle
+\end{equation}
+(avec $\lvert \uparrow \rangle$, 
+$\lvert \downarrow \rangle$ les états propres de $\sigma_z$).
+
+Ce spin évolue avec un Hamiltonien donné par 
+\begin{equation}
+H = \frac{\hbar \omega }{2}\sigma_z\ .
+\end{equation}
+
+\begin{enumerate}
+\item 
+A l'instant $t=0$ on mesure les opérateurs $\sigma_x$, $\sigma_y$ ou $\sigma_z$.
+Quelles sont les valeurs moyennes
+\begin{eqnarray}
+\langle \psi \rvert \sigma_x \lvert \psi \rangle &=& ?\nonumber\\
+\langle \psi \rvert \sigma_y \lvert \psi \rangle &=& ?\nonumber\\
+\langle \psi \rvert \sigma_z \lvert \psi \rangle &=& ?\nonumber
+\end{eqnarray}
+
+\item
+
+Quel est l'état à l'instant $t$ ?
+
+\item
+
+Quelle est est la valeur moyenne de $\sigma_x$  à l'instant $t$ ?
+\begin{eqnarray}
+\langle \psi (t)\rvert \sigma_x \lvert \psi (t)\rangle &=& ?\nonumber
+\end{eqnarray}
+
+\item 
+A l'instant $t$ on mesure l'opérateur $\sigma_x$. Quelle est la probabilité de trouver le résultat $+x$ en fonction de $t$?
+
+\end{enumerate}
+
+\paragraph{Question 2} \textit{L'opérateur $\hat S(\beta)$.} \\
+
+Les opérateurs sans dimension position $\hat x$ et impulsion $\hat p$ satisfont 
+\begin{equation}
+[\hat x, \hat p ] = i\ .
+\label{xp:1}
+\end{equation}
+
+Nous noterons $\lvert x \rangle$ et $\lvert p \rangle$ les états propres de $\hat x$ et de $\hat p $ respectivement, pour tout $x, p \in \mathbb{R}$.
+
+Considérons la famille d'opérateurs
+\begin{equation}
+\hat S(\beta) = \exp \left( -i \beta \hat x \right)\quad , \quad \beta \in \mathbb{R}\ .
+\end{equation}
+
+
+
+
+\begin{enumerate}
+
+
+\item 
+Montrer que $\hat S(\beta_1) \hat S(\beta_2)=\hat S(\beta_1 + \beta_2) $. 
+
+\item
+Que vaut le commutateur $[ \hat x,  \hat S(\beta)]$ ?
+
+\item
+Montrer que $[ \hat p,  \hat S(\beta)] = - \beta \hat S(\beta)$.
+
+
+\item
+Que vaut $\langle x' \rvert S(\beta) \lvert x \rangle$ ?
+
+\item
+Montrer que $\hat S(\beta) \lvert p \rangle$ est un état propre de $\hat p$, et déterminer sa valeur propre.
+
+\item Soit l'état qui en représentation position s'écrit $\lvert \psi\rangle = c\int dx\ \exp (-x^2 + i 3 x)\lvert x \rangle$  avec $c$ une constante de normalisation.
+
+Quelle est la fonction d'onde en représentation position de 
+$\hat S(\beta) \lvert \psi\rangle $ ?
+
+
+\end{enumerate}
+
+
+\paragraph{Question 3} \textit{Pegg--Barnett phase states.} \\
+
+
+
+
+{\bf Rappels et définitions}
+
+ En unités sans dimensions ($\hbar=1$), les opérateurs position $\hat x$ et impulsion $\hat p$ obéissent à la relation de commutation canonique $[\hat x, \hat p]=i $.  Les opérateurs de création et destruction sont définis par 
+$\hat a= \frac{1}{\sqrt{2}}(\hat x+i\hat p)$, $a^\dagger= \frac{1}{\sqrt{2}}(\hat x-i\hat p)$ et satisfont donc $[\hat a,\hat a^\dagger]=1$. L'opérateur nombre $\hat n$ est donné par $\hat n= \hat a^\dagger \hat a$ et ses vecteurs propres sont notés $\hat n \ket{n} =n \ket{n}$ où $n \in \mathbb{N}$. 
+%On peut montrer que $\hat a \ket{n} =\sqrt{n} \ket{n-1}$ et que $\hat a^\dagger \ket{n} =\sqrt{n+1} \ket{n+1}$. 
+L'hamiltonien de l'oscillateur harmonique est $\hat H = \frac{1}{2}\omega ( \hat P^2 + \hat X^2 ) = \omega (\hat n + 1/2)\ $. \\
+
+
+
+Nous noterons ${\cal H}^{(N)}={\text{span}}\{\lvert 0\rangle, \dotsc, \lvert N-1\rangle\}$ l'espace de Hilbert de dimension $N$ dont une base est constituée des états 
+$\lvert 0\rangle, \dotsc, \lvert N-1\rangle$ (les $N$ premiers états nombre)
+%, et   ${\cal H}={\mathrm span}\{\vert n\rangle, \ n\in \mathbb{N}\}$ l'espace infini dimensionel de Hilbert de l'oscillateur harmonique.
+et $\mathbb{I}^{(N)} =\sum_{n=0}^{N-1} \lvert n \rangle \langle n \rvert$ l'opérateur identité sur ${\cal H}^{(N)}$.
+
+
+Pour chaque valeur de $N\in \mathbb{N}$, définissons les $N$ états
+\begin{equation}
+\lvert \psi^{(N)}_m\rangle = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} e^{\frac{i 2 \pi  nm}{N}} \lvert n \rangle\quad , \quad m=0,1,\dotsc,N-1\ .
+\label{eq:states}
+\end{equation}
+Ces états ont été introduits par Pegg et Barnett en 1988, et s'appellent les ``Pegg-Barnett phase states''.
+
+Nous allons montrer que pour chaque valeur de $N$ ces états constituent une base orthonormée de ${\cal H}^{(N)}$ (Questions \ref{poin3} et \ref{poin4}), et que ces états évoluent cycliquement entre eux sous l'action de l'Hamiltonien de l'oscillateur harmonique (Question \ref{poin5}).
+
+
+Nous aurons besoin de la somme 
+\begin{equation}
+\sum_{k=0}^{N-1} e^{\frac{i 2 \pi  k l}{N}}=N\delta_{l,0} \quad , \quad N\in \mathbb{N}  \quad , \quad  l=0,1,\dotsc,N-1\ .\\
+\label{eq:sum}
+\end{equation}
+
+
+{\bf Questions.}
+
+\begin{enumerate}
+
+
+
+\item
+
+Ecrivez explicitement les 4 états $\lvert \psi^{(4)}_m\rangle$, $m=0,1,2,3$.
+
+
+\item
+
+
+Soit $\hat H$  l'Hamiltonien de l'oscillateur harmonique.
+
+Ecrire dans la base nombre l'état $\lvert \psi^{(N)}_m\rangle$ ayant évolué pendant un temps $t$:
+\begin{equation}
+e^{-i t \hat H} \lvert \psi^{(N)}_m\rangle
+\end{equation}
+
+\item
+\label{poin5}
+
+Utilisez la réponse à la question précédente pour montrer que pour certains intervalles de temps discrets ($t={\frac{ 2 \pi k}{N \omega}}$ avec $k$ entier) les états $\lvert \psi^{(N)}_m\rangle$ se transforment entre eux:
+\begin{equation}
+e^{-i \frac{ 2 \pi k}{N \omega}\hat H} \lvert \psi^{(N)}_m\rangle = e^{i\varphi}
+\lvert \psi^{(N)}_{{m - k} \mod N}\rangle
+ \quad , \quad  \forall k\in \{0,1,\dotsc,N-1\}
+\ . \label{eq:evol}
+\end{equation}
+et donnez la phase $\varphi$ dans \eqref{eq:evol}.
+
+\item 
+
+Montrez l'égalité des membres de gauche et de droite de l'équation \eqref{eq:sum} dans le cas $l=0$.
+
+(Si vous savez le faire, démontrez la relation \eqref{eq:sum}  pour $l\neq 0$).
+
+\item
+\label{poin3}
+
+Montrez (en utilisant \eqref{eq:sum}) que pour $N$ fixé, les états $\lvert \psi^{(N)}_m\rangle$ sont orthonormés:
+\begin{equation}
+\langle \psi^{(N)}_{m'} \vert \psi^{(N)}_m\rangle = \delta_{m' m}\ .
+\end{equation}
+
+\item
+\label{poin4}
+
+Montrez  (en utilisant \eqref{eq:sum})  que, pour $N$ fixé, la somme des projecteurs sur les états 
+$\lvert \psi^{(N)}_m\rangle$  est l'opérateur identité sur ${\cal H}^{(N)}$:
+\begin{equation}
+\sum_{m=0}^{N-1} \lvert  \psi^{(N)}_{m} \rangle \langle \psi^{(N)}_m\rvert = \mathbb{I}^{(N)}\ .
+\end{equation}
+
+
+\end{enumerate}

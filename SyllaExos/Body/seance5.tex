@@ -1,0 +1,132 @@
+\chapter{Systèmes à deux dimensions}
+
+\paragraph{Exercice 1} \textit{Matrices de Pauli.} \\
+Les \textit{matrices de Pauli} sont définies comme l'ensemble de matrices $\mathbb{C}^{2\times 2}$ :
+\begin{equation}
+\sigma_x = \left[ 
+\begin{array}{cc}
+0 & 1 \\ 
+1 & 0
+\end{array} 
+\right], \quad
+\sigma_y = \left[ 
+\begin{array}{cc}
+0 & -i \\ 
+i & 0
+\end{array} 
+\right], \quad
+\sigma_z = \left[ 
+\begin{array}{cc}
+1 & 0 \\ 
+0 & -1
+\end{array} 
+\right].
+\end{equation}
+Elles s'emploient pour représenter les 3 composantes spatiales de l'opérateur spin ($1/2$) de l'électron, traité de manière non-relativiste. 
+\begin{enumerate}
+\item Prouvez que les matrices de Pauli vérifient $[\sigma_a, \sigma_b] = 2i \, \sum_c \varepsilon_{abc} \sigma_c$ et $\lbrace\sigma_a,\sigma_b\rbrace = 2 \, \delta_{ab} \, I$, où $I$ est la matrice identité et $\varepsilon_{abc}$ est le tenseur complètement antisymétrique de Levi-Civita.
+\begin{equation}
+\varepsilon_{abc} = \left\lbrace
+\begin{array}{cl}
++1 & \text{si } (a,b,c) \text{ est une permutation paire de }(1,2,3), \\ 
+-1 & \text{si } (a,b,c) \text{ est une permutation impaire de }(1,2,3), \\  
+0 & \text{si deux indices sont égaux}.
+\end{array} 
+\right.
+\end{equation}
+\item On peut considérer les matrices de Pauli comme les composantes spatiales d'un vecteur $\vec{\sigma} = \sum_a \sigma_a \vec{e}_a$ où les $\vec e_a$ sont les vecteurs de la base canonique de $\mathbb{R}^3$. Prouvez que
+\begin{equation}
+(\vec\sigma\cdot \vec A)(\vec\sigma \cdot \vec B) = (\vec A\cdot\vec B) I + i \, \vec\sigma \cdot (\vec A\times \vec B)
+\end{equation}
+où $\vec A$, $\vec B$ sont deux vecteurs de $\mathbb{R}^3$.
+\item Si $\vec n$ est un vecteur unitaire de $\mathbb{R}^3$ et $\alpha\in\mathbb R$, démontrez que
+\begin{equation}
+e^{-\frac{i}{2} \alpha \, \vec n \cdot \vec \sigma } = \cos \frac{\alpha}{2} I - i \, \vec n \cdot \vec \sigma \sin \frac{\alpha}{2}.
+\end{equation}
+Quelles sont les propriétés de cet objet ?
+\item Montrez que toute matrice hermitienne $2\times 2$ peut s'écrire $M = a_0 I + \vec a\cdot\vec \sigma$. Montrez que $a_0,a_x,a_y,a_z$ sont réels. Comment peut-on les calculer à partir de $M$ ? Donnez les valeurs propres et vecteurs propres de $M$ en fonction de $a_0$ et $\vec a$.
+\end{enumerate}
+
+\paragraph{Exercice 2} \textit{Spin dans une direction quelconque.} \\
+Soit un électron dont l'état de spin est polarisé dans une direction repérée par la colatitude $\theta$ et l'azimut $\phi$. On obtient de tels états en effectuant une rotation arbitraire de l'appareil de Stern-Gerlach (voir cours théorique). On choisira comme base de l'espace de Hilbert $\mathcal S$ associé au spin de cet électron les états $\ket{\uparrow}$ et $\ket{\downarrow}$ représentant les états propres de l'opérateur $\hat S_z = \hat{\vec S}\cdot \vec e_z$, respectivement associés aux valeurs propres $+\hbar/2$ et $-\hbar/2$. 
+\begin{enumerate}
+\item Exprimez le vecteur unitaire $\vec n$ en fonction des angles $(\theta,\phi)$. 
+\item Déterminez l'opérateur $\hat S_{\vec n} = \hat{\vec S}\cdot \vec n$ représentant le spin polarisé selon $\vec n$ dans l'espace $\mathcal S$. Calculez-en les valeurs propres et vecteurs propres. Nous noterons ces derniers $\ket{\uparrow_{\vec n}}$ et $\ket{\downarrow_{\vec n}}$.
+\item Calculez $\braket{\hat{\vec S}}$ dans l'état $\ket{\uparrow_{\vec n}}$. Qu'observez-vous ? Tirez-en une technique géométrique pour visualiser l'état de spin d'un système à spin $1/2$ (\textit{sphère de Bloch}).
+\item Calculez l'opérateur $\hat{\mathcal D} (\theta,\phi)$ qui effectue le changement de base $\lbrace \ket{\uparrow},\ket{\downarrow}\rbrace$ $\to$ $\lbrace \ket{\uparrow_{\vec n}},\ket{\downarrow_{\vec n}}\rbrace$. Montrez qu'elle est unitaire et justifiez cet état de fait.
+\item Expliquez l'action de $\hat{\mathcal D}(\theta,\phi)$ au niveau géométrique. Déduisez-en qu'il existe un vecteur unitaire $\vec p$ (que vous calculerez) tel que
+\begin{equation}
+\hat{\mathcal D}(\theta,\phi) \equiv e^{-\frac{i}{\hbar}\theta \, \vec{p}\cdot \hat{\vec S}}.
+\end{equation}
+Quel est le rôle joué par les opérateurs $\hat S_a$ ? L'état d'un système décrivant une particule de spin $1/2$ est-il invariant sous rotation complète d'angle $2\pi$ ? Commentaires ?
+\item L'électron est préparé dans l'état $\ket{\uparrow_{\vec n}}$. On le soumet à un champ magnétique statique dirigé selon $\vec e_z$, de sorte que la restriction de l'opérateur hamiltonien à $\mathcal S$ s'écrive $\hat H = \omega_0 \hat S_z$. Décrivez l'état $\ket{\psi(t)}$ après un temps $t>0$.
+\item Décrivez l'évolution des valeurs moyennes $\braket{\hat S_a}(t)$ et comparez au mouvement classique (\textit{précession de Larmor}). Montrez en particulier que $\hat S_z$ est une constante du mouvement. 
+\end{enumerate}
+
+\paragraph{Exercice 3} \textit{Particule à spin dans un champ magnétique.} \\
+On considère une particule de spin $1/2$, de rapport gyromagnétique $\gamma$. L'espace des états de spin est muni de la base orthonormée $\mathcal{B} = \lbrace \ket{\uparrow},\ket{\downarrow}\rbrace$ qui sont les états propres de l'opérateur $\hat S_z = \hat{\vec S}\cdot \vec e_z$, respectivement associés aux valeurs propres $+\hbar/2$ et $-\hbar/2$.\\
+
+\textbf{\textit{Champ stationnaire}}
+\begin{enumerate}
+\item À l'instant $t=0$, on prépare le système dans l'état $\ket{\psi_0} = \ket{\uparrow}$. Si l'on mesure immédiatement l'observable $\hat S_x$, quels résultats peut-on trouver, et avec quelles probabilités ?
+\item On prépare à nouveau le système dans l'état $\ket{\psi_0} = \ket{\uparrow}$ à l'instant initial $t=0$. On le laisse ensuite évoluer librement sous l'action d'un champ magnétique uniforme $\vec B = B_0 \vec e_y$. Déterminez l'état de spin du système $\ket{\psi(t)}$ à l'instant $t>0$, ramené à la base $\mathcal{B}$.
+\item En cet instant $t$, on mesure les observables $\hat S_x,\hat S_y,\hat S_z$. 
+\begin{enumerate}
+\item Peut-on les mesurer simultanément ?
+\item Pour chacune d'entre elles, quelles valeurs peut-on trouver ? \\
+Avec quelles probabilités ?
+\item Quelle relation doit-il y avoir entre $B_0$ et $t$ pour que l'une des mesures donne un résultat certain \textit{a priori} ? Interprétez physiquement votre résultat.
+\end{enumerate}
+\end{enumerate}
+$ $\\
+\textbf{\textit{Champ dépendant du temps}}
+\begin{enumerate}
+\item À l'instant $t=0$, on prend une mesure de $\hat S_y$ et on trouve $+\hbar/2$. Donnez le vecteur d'état $\ket{\psi_0}$ immédiatement après la mesure ? 
+\item Immédiatement après cette mesure, on applique un champ uniforme parallèle à $\vec e_z$, dont l'amplitude varie dans le temps. L'hamiltonien associé à l'évolution de l'état de spin de la particule peut donc s'écrire $\hat H (t) = \omega (t) \hat S_z$. On suppose que 
+\begin{equation}
+\omega (t) = \left\lbrace
+\begin{array}{cl}
+0 & \text{si } t < 0, \\ 
+\omega_0 \, \frac{t}{T} & \text{si } 0 \leq t \leq T, \\ 
+0 & \text{si } t > 0,
+\end{array} 
+\right.
+\end{equation}
+où $\omega_0,T\in \mathbb{R}^+_0$. Calculez le vecteur d'état à l'instant $t>0$. 
+\item Après l'extinction du champ magnétique ($t>T$), on mesure $\hat S_y$. 
+\begin{enumerate}
+\item Quels résultats peut-on trouver, et avec quelles probabilités ?
+\item Déterminez la relation qui doit unir $\omega_0$ et $T$ pour que l'on soit certain du résultat de la mesure. Interprétez physiquement votre résultat.
+\end{enumerate}
+
+\end{enumerate}
+
+\paragraph{Exercice 4} \textit{La résonance magnétique nucléaire.} \\
+Nous allons considérer, dans cet exercice, l'évolution d'un spin $1/2$ dans un système de champs magnétiques potentiellement variables dans le temps, et montrerons qu'il est possible d'en extraire une technique d'analyse de la matière sous certaines conditions de résonance. 
+\begin{enumerate}
+\item Nous commençons par l'analogue classique d'une particule de moment cinétique $\vec J$ et de rapport gyromagnétique $\gamma$. Supposons-la plongée dans un champ magnétique statique $\vec B_0$.
+\begin{enumerate}
+\item Montrez que le moment magnétique est en rotation à une vitesse angulaire $\omega_0$ constante (que l'on déterminera) autour de $\vec B_0$ (\textit{précession de Larmor}).
+\item Allumons à présent un champ magnétique $\vec B_1(t)$ tournant sans modifier son intensité dans le plan orthogonal à $\vec B_0$ à vitesse angulaire constante $\omega$. \item Décrivez un système d'axes $\mathcal R = (\vec e_x,\vec e_y,\vec e_z)$ particulièrement adapté à l'étude du problème.
+\item Définissez un référentiel $\mathcal R'$ où $\vec B_0$ et $\vec B_1(t)$ sont des vecteurs constants, et dérivez l'évolution du moment magnétique de la particule dans ce référentiel, que l'on nommera \textit{référentiel tournant}.
+\item Étudiez le comportement du moment magnétique lorsque les valeurs $\omega$ et $\omega_0$ sont très différentes, ou lorsqu'elles sont très proches l'une de l'autre. Quel phénomène peut-on observer lorsque $\omega = \omega_0$ ?
+\end{enumerate}
+\item Passons à présent au traitement quantique de la situation. Considérons une particule de spin $1/2$ soumise à l'action des deux champs précédemment décrits. On désigne par $\ket{+}$ et $\ket{-}$ les états propres de la composante verticale du spin associés aux valeurs propres respectives $+\hbar/2$ et $-\hbar/2$. Au temps $t=0$, le spin est dans l'état $\ket{\psi(0)}$.
+\begin{enumerate}
+\item Formez l'équation de Schrödinger dans le référentiel $\mathcal R$. 
+\item Effectuez une rotation adéquate dans l'espace des spins pour vous placer dans le référentiel tournant $\mathcal R'$. Écrivez à nouveau l'équation de Schrödinger. Quel bénéfice retirez-vous du changement de référentiel ?
+\item Déterminez l'état du spin dans le référentiel $\mathcal R$ pour toute valeur de $t\geq 0$.
+\item Si $\ket{\psi(0)} = \ket{+}$, calculez la probabilité d'observer un renversement du spin. Étudiez à nouveau le comportement du système en fonction de la différence $\Delta\omega = \omega-\omega_0$.
+\item À quelles conditions est-on certain que le spin s'est renversé ? Expliquez alors comment peut-on analyser un échantillon de matière en utilisant cette méthode de renversement des spins des noyaux atomiques !
+\item Montrez que l'évolution de la valeur moyenne du moment magnétique de la particule à spin reproduit bien l'évolution classique. Vous comprenez alors pourquoi les résultats obtenus dans les deux analyses sont similaires !
+\end{enumerate}
+
+\end{enumerate}
+
+\paragraph{Questions d'examen:}
+\begin{itemize}[label=\textbullet]
+    \item Interféromètre de Mach-Zehnder: Août 2021 Q3,
+    \item Oscillations de neutrinos: Août 2022 Q2,
+    \item Autres exemples de résonance Quantique: Juin 2019 Q3, Juin 2021 Q2,
+    \item Spin 1/2: Août 2019 Q3, Juin 2022 Q1.
+\end{itemize}

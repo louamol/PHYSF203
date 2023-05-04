@@ -1,0 +1,146 @@
+\chapter{L'oscillateur harmonique en mécanique quantique}
+
+\paragraph{Exercice 1} \textit{Thème et variations sur l'oscillateur harmonique quantique.} \\
+Ce premier exercice permet d'aider l'étudiant à s'approprier les différents outils algébriques mis à contribution pour l'étude de l'oscillateur harmonique en mécanique quantique, par le biais de quelques calculs simples et directs.
+
+\begin{enumerate}
+
+\item Soit un oscillateur harmonique uni-dimensionnel de masse $m$ et de pulsation propre $\omega$. À l'instant initial $t=0$, l'état de cet oscillateur est donné par $\ket{\psi(0)} = \sum_n c_n \ket{n}$ où $\ket{n}$ représente l'état propre à $n$ excitations. 
+	\begin{enumerate}
+	\item Quelle est la probabilité $\mathcal P (t)$ pour qu'une mesure de l'énergie de l'oscillateur effectuée à un temps $t>0$ quelconque, donne un résultat supérieur à $2\hbar \omega$. Lorsque $\mathcal P(t)$ est identiquement nulle pour tout $t>0$, donnez les seuls coefficients $c_n$ qui sont non-nuls.
+	\item Supposons à partir de maintenant que seuls $c_0$ et $c_1$ sont non-zéro. Déterminez ces coefficients si $\braket{\hat H} = \hbar \omega$ et $\braket{\hat X} = \frac{1}{2} \sqrt{\frac{\hbar}{m\omega}}$ dans l'état initial. \\
+	\textit{Indication :} sans perte de généralité, on peut considérer que $c_0 \in \mathbb{R}^+$. Pourquoi ?
+	\item Faites maintenant évoluer $\ket{\psi(0)}$ et écrivez $\ket{\psi(t)}$ pour $t>0$ quelconque. Calculez $\braket{\hat X}(t)$, $\braket{\hat P}(t)$ et $\braket{\hat H}(t)$ à tout instant. 
+	\end{enumerate}
+
+\item Sans écrire aucune équation, déterminez les niveaux d'énergie d'une particule soumise à l'action du potentiel $V(x)$ tel que $V(x) = \infty$ pour tout $x \leq 0$ et $V(x) = \frac{1}{2}m \omega^2 x^2$ pour tout $x>0$.
+
+\item Calculez les probabilités de trouver une particule dans la région classiquement interdite d'un oscillateur harmonique pour les états $n = 0, \, 1, \, 2, \, 3, \, 4$. Ces résultats sont-ils compatibles avec leur homologue classique ?
+
+\item Calculez les éléments de matrice $\braket{m|\hat X^2|n}$ et $\braket{m|\hat P^2|n}$ dans la représentation de Fock. Déduisez-en l'énergie moyenne dans l'état $\ket{n}$ pour une particule dans l'hamiltonien s'écrit $\hat H = \frac{1}{2m}\hat P^2 + \frac{1}{2}m\omega^2 \hat X^2 - \lambda \hat X^4$. 
+
+\item Déterminez les niveaux d'énergie d'un oscillateur harmonique isotrope à 3 dimensions de pulsation propre $\omega$. Les niveaux décrits sont-ils dégénérés ? Si oui, donnez leur degré de dégénérescence ? 
+
+\end{enumerate}
+
+\paragraph{Exercice 2} \textit{Oscillateur harmonique en représentation X.} \\
+Considérons une particule de masse $m$ confinée dans un puits uni-dimensionnel défini par le potentiel harmonique $V(\tilde x) = \frac{1}{2}m\omega^2\tilde x$, où $\tilde x$ décrit la position de la particule. On note $\Psi(t,\tilde x) = \tilde \varphi(\tilde x)e^{-\frac{i}{\hbar}E t}$ la fonction d'onde de la particule dans un état stationnaire d'énergie $E$. 
+%Le profil spatial appartiennent à l'espace de Hilbert $\mathcal F(\mathbb R)$ des fonctions numériques d'une variable réelle déclinantes à l'infini, muni du produit scalaire
+%\begin{equation}
+%\braket{\cdot|\cdot}_0 : \mathcal F(\mathbb R) \times \mathcal F(\mathbb R) \to \mathbb R : (f,g) \mapsto \braket{f|g}_0 = \int_{-\infty}^{+\infty} dx \, f(x)g(x),
+%\end{equation}
+\begin{enumerate}
+\item Définissez la coordonnée sans dimensions $x$ afin que le profil spatial $\varphi(x)$ soit solution de l'équation différentielle $(\hat D^2-x^2)\varphi(x) + 2\,\varepsilon\,\varphi(x)=0$ où $\hat D \equiv \frac{d}{dx}$ et $\varepsilon$ est une fonction de $E$ que vous préciserez. Établissez la relation entre $\varphi(x)$ et $\tilde \varphi(\tilde x)$ et montrez que $\varphi$ est normée si $\tilde\varphi$ l'est.
+\item Montrez que le comportement asymptotique d'une solution de cette équation différentielle pour $x\gg 1$ est $\varphi(x)\sim e^{-x^2/2}$. Nous poserons donc $\varphi(x) = \frac{1}{\sqrt{N}}H(x)e^{-x^2/2}$ où $H(x)$ est un polynôme en $x$ et $N$ une constante de normalisation.
+\item Démontrez que $H(x)$ ainsi défini est un vecteur propre de l'opérateur $\hat A = \hat D^2-2x\hat D$.
+\end{enumerate}
+Il nous reste donc à étudier la structure propre $\hat A$. Ce dernier agit sur l'espace de Hilbert $\mathcal P(\mathbb R)$ des polynômes d'une variable réelle, que l'on peut équiper du produit scalaire générique
+\begin{equation}
+\braket{\cdot|\cdot} : \mathcal P(\mathbb R) \times \mathcal P(\mathbb R) \to \mathbb R : (f,g) \mapsto \braket{f|g} = \int_{-\infty}^{+\infty} dx \, w(x)f(x)g(x), \label{eq:PS}
+\end{equation}
+où $w(x)$ est une fonction strictement positive de masse unité, appelée \textit{poids} du produit scalaire. 
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Démontrez que $\hat A$ est auto-adjoint pour le produit scalaire \eqref{eq:PS}, pour un poids $w(x)$ adéquat que vous déterminerez. 
+\item Soient $\hat P$ et $\hat Q$ deux opérateurs agissant dans $\mathcal P(\mathbb R)$ tels que $[\hat P,\hat Q]=\hat I$, et la suite de polynômes $(f_n)_{n\in\mathbb N}$ telle que $\hat Pf_0(x) = 0$, $f_n(x) = \hat Qf_{n-1}(x)$ pour tout $n>0$. Démontrez que $f_n(x)$ est vecteur propre de $\hat Q\hat P$, associé à la valeur propre $n$.
+\item Utilisez ce théorème pour vérifier que les vecteurs propres de $\hat A$ peuvent s'écrire $H_n(x) = (-1)^n \frac{1}{F}\frac{d^n}{dx^n}F$ pour une certaine fonction lisse $F(x)$ (\textit{polynômes d'Hermite}).
+\item Calculez $H_0(x)$ et $H_1(x)$. Montrez qu'il est suffisant de connaître ces deux polynômes pour connaître tous les $H_n(x)$, $\forall n\geq 1$.
+\item Démontrez que tout polynôme d'Hermite $H_n(x)$ peut s'écrire comme un polynôme de degré $n$, de même parité que $n$. Commentaires ?
+\item Donnez l'expression des fonctions propres de la particule quantique, et justifiez qu'elles sont bien orthonormées.
+\end{enumerate}
+
+\paragraph{Exercice 3} \textit{États cohérents.} \\
+%Les états cohérents jouent un rôle central en optique quantique, particulièrement en physique des lasers. Les travaux fondateurs en la matière ont été effectués dès les années '60 par Roy J. Glauber, qui reçut le prix Nobel de Physique en 2005 pour sa contribution à la compréhension des outils mathématiques nécessaires à la formulation de la cohérence optique. La première étude de tels états cohérents bosoniques  peut être menée dans le cadre de l'oscillateur harmonique uni-dimensionnel abordé dans ce cours d'introduction. \\
+On considère un oscillateur harmonique quantique de fréquence propre $\omega$, évoluant dans la direction $\vec{Ox}$. Les opérateurs d'échelle sont notés conventionnellement $\hat a$ et $\hat a^\dagger$. On définit un \textit{état cohérent} comme un état propre de l'opérateur d'annihilation 
+\begin{equation}
+\hat a \ket{\alpha} = \alpha \ket{\alpha}.
+\end{equation}
+Vu que $\hat a$ n'est pas hermitien, $\alpha$ est généralement un nombre complexe. À la différence des états propres de l'opérateur de comptage $\hat N = \hat a^\dagger \hat a$ qui décrivent un nombre fixé d'excitations, les états $\ket{\alpha}$ sont peuplés par un nombre indéterminé d'excitations, mais possèdent une phase fixée. Notons enfin que l'état fondamental $\ket{0}$ de l'oscillateur (tel que $\hat a \ket{0} = 0$) est un état cohérent particulier. 
+
+\begin{enumerate}
+
+\item \textbf{Opérateur déplacement.} \\
+Définissons l'opérateur $\hat D(\alpha) = e^{\alpha \hat a^\dagger - \bar \alpha \hat a}$ pour tout $\alpha\in\mathbb{C}$.
+\begin{enumerate}
+\item Prouvez que $\hat D(\alpha)$ est unitaire et qu'il peut se réécrire $\hat D(\alpha) = e^{-\frac{1}{2}|\alpha|^2} e^{\alpha \hat a^\dagger} e^{-\bar \alpha \hat a}$. 
+\item Démontrez les identités suivantes :
+\begin{enumerate}
+\item $\hat D^\dagger (\alpha) \, \hat a \, \hat D(\alpha) = \hat a + \alpha \,\hat I$ ;
+\item $\hat D^\dagger (\alpha) \, \hat a^\dagger \, \hat D(\alpha) = \hat a^\dagger + \bar \alpha \, \hat I$ ;
+\item $\hat D(\alpha+\beta) = \hat D(\alpha) \, \hat D(\beta) \, e^{-i \, \text{Im}\lbrace \alpha\bar\beta\rbrace}$.
+\end{enumerate}
+\item Montrez que l'état cohérent $\ket{\alpha}$ peut être généré à partir de l'état fondamental $\ket{0}$ par l'opérateur unitaire $\hat D(\alpha)$.
+\end{enumerate}
+
+\item \textbf{Développement sur l'espace de Fock.} 
+\begin{enumerate}
+\item Montrez que
+\begin{equation}
+\ket{\alpha} = e^{-\frac{1}{2}|\alpha|^2} \sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}} \ket{n}.
+\end{equation}
+où $\ket{n}$ est la $n$-ième vecteur de la base de Fock.
+\item Calculez la probabilité $P(n)$ de mesurer $n$ excitations dans l'état $\ket{\alpha}$. Quelle loi de probabilité découvrez-vous ?
+\item Trouvez les valeurs moyennes $\braket{\hat X}_\alpha$, $\braket{\hat P}_\alpha$, $\braket{\hat H}_\alpha$ des observables position, impulsion et énergie dans l'état $\ket{\alpha}$, ainsi que les incertitudes $\Delta X_\alpha$, $\Delta P_\alpha$, $\Delta H_\alpha$. Que se passe-t-il lorsque $|\alpha|\gg 1$ ?
+\end{enumerate}
+
+\item \textbf{Base d'états cohérents.} 
+\begin{enumerate}
+\item Calculez $|\braket{\beta|\alpha}|^2$ pour $\alpha$, $\beta \in\mathbb{C}$ quelconques. Commentaires ?
+\item Démontrez que les états cohérents forment une relation de fermeture
+\begin{equation}
+\frac{1}{\pi} \int_{\mathbb{C}} \text{d}^2\alpha \, \ket{\alpha}\bra{\alpha} = \hat I.
+\end{equation}
+\textit{Indications :} passez en coordonnées polaires dans le plan complexe, et utilisez \\ $\int_0^\infty ds \, e^{-s} s^n = \Gamma(n+1) = n!$
+\end{enumerate}
+
+\item \textbf{Évolution des états cohérents.} 
+\begin{enumerate}
+\item Étudiez l'évolution d'un état cohérent. Montrez en particulier qu'il reste constamment vecteur propre de $\hat a$, ce qui justifie l'appellation pour $\ket{\alpha}$.
+\item Déduisez-en l'évolution temporelle de la position moyenne du paquet d'onde correspondant. Commentaires ?
+\item Montrez que la fonction d'onde (en représentation de position) associée à un état cohérent $\ket{\alpha}$ est donnée (à un choix de phase près) par
+\begin{equation}
+\psi(x) = e^{\frac{i}{\hbar} x \braket{\hat P}_\alpha} \, \psi_0 (x - \braket{\hat X}_\alpha).
+\end{equation}
+où $\psi_0(x)$ est la fonction d'onde associée à l'état fondamental $\ket{0}$ de l'oscillateur. 
+\item En tenant compte des points précédents, devinez comment évolue la fonction d'onde fraîchement dérivée lorsque le temps s'écoule ? Calculez la densité de probabilité de présence de la particule en cet instant. Interprétez physiquement votre résultat, et justifiez en particulier l'appellation ``états quasi-classiques'' pour les états cohérents de l'oscillateur harmonique.
+\end{enumerate}
+
+\end{enumerate}
+
+\paragraph{Exercice 4} \textit{Parité des états.} \hfill [\textit{Juin 2019.}] \\
+On prépare un oscillateur harmonique quantique unidimensionnel au temps $t=0$ dans l'état
+\begin{equation}
+\ket{\psi} = \frac{1}{\sqrt{5}} \ket{0} - \frac{1}{\sqrt{5}}\ket{1} - \frac{1}{\sqrt{5}}\ket{2} + \frac{\sqrt{2}}{\sqrt{5}}\ket{4},
+\end{equation}
+où les $\ket{n}$ sont les vecteurs de la base de Fock. Considérons l'opérateur
+\begin{equation}
+\hat \Pi = \sum_{m=0}^\infty \ket{2m}\bra{2m}.
+\end{equation}
+\begin{enumerate}
+\item Montrez que $\hat \Pi$ est un projecteur orthogonal. Sur quel sous-espace $E$ de l'espace de Fock l'opérateur $\hat \Pi$ projette-t-il ? Commentaires ?
+\item Si l'on mesure l'opérateur $\hat \Pi$ sur l'état $\ket{\psi}$, quels résultats pourrait-on obtenir, et avec quelles probabilités ?
+\item Si la mesure de $\hat \Pi$ sur l'état $\ket{\psi}$ donne le résultat $1$, quel est l'état (normalisé) de l'oscillateur après la mesure ? 
+\item Que devient cet état après un temps $t>0$ ?
+\end{enumerate}
+
+
+\paragraph{Exercice 5} \textit{Oscillateur harmonique quantique forcé.} \\
+Considérons une particule de masse $m$ et de charge $q$, se déplaçant dans la direction $\vec{Ox}$ sous l'action d'un potentiel harmonique $V(x) = \frac{1}{2}m\omega^2 x^2$. Elle ressent également la présence d'un champ électrique variable $E(t)$ orienté dans la direction $\vec{Ox}$.
+\begin{enumerate}
+\item Écrivez l'hamiltonien $\hat H(t)$ de la particule en fonction des opérateurs d'échelle $\hat a$ et $\hat a^\dagger$. Calculez les commutateurs de ces derniers avec $\hat H(t)$. 
+\item Définissons $\alpha(t) \equiv \braket{\psi(t)|\hat a|\psi(t)}$ où $\ket{\psi(t)}$ est le vecteur d'état de la particule étudiée. Déduisez des résultats précédemment établis que
+\begin{equation}
+\frac{d}{dt} \alpha(t) = -i\, \omega \, \alpha (t) + i \frac{q}{\sqrt{2m\hbar\omega}}E(t).
+\end{equation}
+Résolvez cette équation différentielle pour $\alpha(t)$. En un instant $t$ quelconque, quelles sont les valeurs moyennes de la position et de la quantité de mouvement de la particule ?
+\item Définissons un autre état $\ket{\varphi(t)} \equiv [\hat a - \alpha(t) \hat I]\ket{\psi(t)}$. Montrez que l'évolution de $\ket{\varphi(t)}$ est gouvernée par
+\begin{equation}
+i\hbar \frac{d}{dt} \ket{\varphi(t)} = [\hat H(t) + \hbar \omega \hat I] \ket{\varphi(t)}.
+\end{equation}
+Comment varie la norme de $\ket{\varphi(t)}$ en fonction du temps ?
+\item Supposons qu'à l'instant $t=0$, l'oscillateur est dans son état fondamental $\ket{0}$. Le champ électrique est actif dans l'intervalle de temps $t\in[0,T]$ où $T \in \mathbb{R}_0^+$. En tout instant ultérieur $t>T$, quelle est l'évolution des valeurs moyennes $\braket{\hat X}(t)$ et $\braket{\hat P}(t)$ ?
+\item Supposons que le champ électrique est donné par $E(t) = E_0 \cos (\omega't) \chi_{[0,T]}$. Discutez en fonction de l'écart de pulsation $\Delta \omega \equiv \omega'-\omega$ les phénomènes observés.
+\item Dans ces hypothèses, si on mesure l'énergie en un instant $t>T$, quels résultats peut-on observer, et avec quelles probabilités ?
+\end{enumerate}
+
+\paragraph{Questions d'examen:} Juin 2019 Q2, Août 2019 Q2, Juin 2021 Q1, Août 2021 Q1, Août 2022 Q1.

@@ -1,0 +1,133 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage{import}
+
+\import{Packages/}{custom_packages.tex}
+\import{Packages/}{custom_macros.tex}
+
+\title{Formalisme de Dirac: Rappel}
+\author{Louan Mol}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{Le spin : Rappel}}
+\end{center}
+
+\section{Matrices de Pauli}
+
+\paragraph*{Définition.} Les \emph{matrices de Pauli} sont les trois matrices $2\times2$ à coefficients complexes suivantes:
+\begin{equation}
+    \sigma_x = 
+    \begin{bmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{bmatrix},\qquad
+    \sigma_x = 
+    \begin{bmatrix}
+        0 & -i \\
+        i & 0
+    \end{bmatrix},\qquad
+    \sigma_x = 
+    \begin{bmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{bmatrix}.
+\end{equation}
+En particulier, ce sont toutes les trois des matrices hermitiennes, de trace nulle et de déterminant $-1$.
+
+\paragraph*{Multiplication.} Elles satisfont la propriété importante suivante:
+\begin{equation}
+    \boxed{\sigma_a\sigma_b=\delta_{ab}\mathbbm{1}+i\varepsilon_{abc}\sigma_c}.
+\end{equation}
+En particulier, le carré d'une matrice de Pauli est l'identité et le produit de deux matrices de Pauli différentes est à nouveau une matrice de Pauli. À partir de cette relation, on peut montrer que 
+\begin{equation}
+    \boxed{[\sigma_a,\sigma_b]=2i\varepsilon_{abc}\sigma_c}
+\end{equation}
+et
+\begin{equation}
+    \boxed{\{\sigma_a,\sigma_b\}=2\delta_{ab}\mathbbm{1}}.
+\end{equation}
+
+\paragraph*{Structure propre.} Notons $\{\ket{e_1},\ket{e_2}\}$ la base dans laquelle les matrices de Pauli sont expirmées.
+\begin{table}[H]
+    \centering
+    $
+    \begin{array}{|c|c|c|}
+        \hline
+        \textbf{Matrice} & \textbf{Vecteurs propres} & \textbf{Valeurs propres} \\ \hline
+        \multirow{2}{*}{$\sigma_x$} & \frac{\ket{e_1}+\ket{e_2}}{\sqrt{2}} & +1 \\
+        & \frac{\ket{e_1}-\ket{e_2}}{\sqrt{2}} & -1 \\ \hline
+        \multirow{2}{*}{$\sigma_y$} & \frac{\ket{e_1}+i\ket{e_2}}{\sqrt{2}} & +1 \\
+        & \frac{\ket{e_1}-i\ket{e_2}}{\sqrt{2}} & -1 \\ \hline
+        \multirow{2}{*}{$\sigma_z$} & \ket{e_1} & +1 \\
+        & \ket{e_2} & -1 \\ \hline
+    \end{array}
+    $
+\end{table}
+
+\paragraph*{Relation avec les matrices hermitiennes.} Les matrices $\sigma_a$ étant hermitiennes et de traces nulles, toute combinaison linéaire réelle
+\begin{equation}
+    \vec{n}\cdot\vec{\sigma}\equiv n_x\sigma_x+n_y\sigma_y+n_z\sigma_z = 
+    \begin{bmatrix}
+        n_z & n_x-in_y\\
+        n_x+in_y & -n_z
+    \end{bmatrix},\qquad \vec{n}\in\R^3
+\end{equation}
+est aussi hermitienne et de trace nulle. Inversément, on peut montrer que tout matrice $2\times2$ hermitienne et de trace nulle\footnote{L'ensemble de ces matrices est noté $\mathfrak{su}(2)$.} peut s'écrire comme une combinaison linaire réelle des matrices de Pauli.\\
+
+Plus généralement, toute matrice $2\times 2$ heritienne peut s'écrire comme une combinaison linéaire réelle des matrices de Pauli et de l'identité.
+
+\paragraph*{Relation avec les matrices unitaires.} Nous avons vu précédemment que si $A$ est une matrice hermitienne, alors $U=e^{iA}$ est une matrice unitaire. On conclu donc que toute matrice de la forme $e^{i\vec{n}\cdot\vec{\sigma}}$ est unitaire et de déterminant $1$. Qu'en est-il de la question inverse: est-ce que toute matrice $2\times2$ unitaire de déterminant $1$\footnote{L'ensemble des ces matrices est noté $\text{SU(2)}$.} peut s'écrire sous cette forme ? La réponse est oui. Comprendre pourquoi demande cependant plus de formalisme (voir cours sur les groupes de Lie et algèbres de Lie en BA3).
+
+\section{Moment angulaire et spin}
+
+\paragraph*{Moment angulaire.} On définit les \emph{moments angulaires} dans chaque direction d'espace comme trois matrices $J_x,J_y$ et $J_z$ qui satisfont les relations de commutation suivantes:
+\begin{equation}
+    \boxed{[J_i,J_j] = i\varepsilon_{ijk}J_k}.
+\end{equation}
+L'action d'une rotation d'angle $\theta$ autour de l'axe $\vec{n}$ est alors représentée par la matrice unitaire
+\begin{equation}
+    \boxed{\hU(\theta,\vec{n})\equiv e^{i\theta\vec{n}\cdot\vec{J}}}
+\end{equation}
+et un état se transforme sous rotation de la manière suivante:
+\begin{equation}
+    \ket{\psi}\mapsto \hU(\theta,\vec{n})\ket{\psi}.
+\end{equation}
+Il existe une beauoucp de possiblités de matrices $J_i$ qui satisont ces relations. Ce choix (le choix de representation) dépend du spin de l'objet considéré.
+
+\paragraph*{Spin.} Le \emph{spin} est une propriété interne d'un objet (tout comme sa masse, sa charge, etc) caractérisé par un nombre entier ou demi-entier: $s\in \N/2$. \\
+
+L'état physique d'une particule avec spin est la donnée de son état ``interne'' (position, impulsion, etc) et de son état de spin. L'espace de Hilbert est donc ``scindé'' en deux parties: la partie interne et la partie spin. Par exemple, pour une particule de spin $1/2$ à 1 dimension, l'espace de Hilbert est $\H=L^2(\R)\otimes\C^2$. Plus de détails seront donnés dans le cours de BA3. Pour l'instant nous considérerons les deux séparément: soit nous étudions l'état interne de la particule (comme nous l'avons fait jusqu'à présent), soit son état de spin (TP 5).
+
+
+\paragraph*{Spin $\boldsymbol{1/2}$.} Pour une particule de spin $1/2$, les matrices de moment angulaire sont
+\begin{equation}
+    S_i = \frac{\hbar}{2}\sigma_i.
+\end{equation}
+On peut montrer que l'opérateur qui implémente les rotations est alors
+\begin{equation}
+    U(\theta,\vec{n}) = e^{i\frac{\hbar}{2}\theta \vec{n}\cdot\vec{\sigma}} = \cos\frac{\theta}{2}\mathbbm{1}+i\sin\frac{\theta}{2}\vec{n}\cdot\vec{\sigma}.
+\end{equation}
+
+\paragraph*{Moment magnétique.} En mécanique classique, si un objet possède un moment magnétique $\vec{\mu}$, la présence d'un champ magnétique $\vec{B}$ induit un moment de force
+\begin{equation}
+    \vec{\tau} = \vec{\mu}\times\vec{B}
+\end{equation}
+sur l'objet. Le moment angulaire $L$ et le moment magnétique $\mu$ sont reliés par le \emph{rapport gyromagnétique}
+\begin{equation}
+    \gamma\equiv\frac{\mu}{L}.
+\end{equation}
+Par exemple, considérons le cas d'une particule de charge $q$ et de masse $m$ en MCU de rayon $r$ à vitesse $v$. Il y a à la fois un moment angulaire $L=mrv$ venant du fait que la particule tourne et qu'elle est massive et un moment magnétique $\mu=IA$ venant du fait que la particule tourne et qu'elle est chargée. On trouve rapidement que
+\begin{equation}
+    \gamma = \frac{q}{2m}.
+\end{equation}
+
+
+
+
+
+
+
+
+\end{document}

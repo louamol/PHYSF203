@@ -1,0 +1,359 @@
+\chapter{Août 2019}
+
+\paragraph{Question 1} \textit{Théorie.} \\
+
+Soit $\hat A= \hat A^\dagger$ un opérateur hermitien agissant dans un espace de Hilbert de dimension finie.
+
+\begin{enumerate}
+
+\item Les éléments de matrice de $\hat A^\dagger$ (par exemple $\langle \alpha \vert \hat A^\dagger \vert \beta \rangle$) peuvent s'exprimer en terme des éléments de matrice de $\hat A$. Donner cette relation.\\
+
+\ans{
+\begin{equation}
+\langle \alpha \vert \hat A^\dagger \vert \beta \rangle=
+\overline{\langle \beta \vert \hat A^\dagger \vert \alpha \rangle}
+\end{equation}}
+
+\item
+Montrer que les valeurs propres de $\hat A$ sont réelles. \\
+
+\ans{
+Soit $a$ une valeur propre de $\hat A$ et $\ket{a}$ le vecteur propre associé. On a $\hat A\ket{a} = a\ket{a}$ soit $\braket{a|\hat A|a} = a \braket{a|a}$. D'où $\overline{\braket{a|\hat A|a}} = \bar a \braket{a|a}$. Par ailleurs, $\overline{\braket{a|\hat A|a}} = \braket{a|\hat A^\dagger|a} = \braket{a|\hat A|a}$ d'où finalement $(a-\bar{a})\braket{a|a} = 0$. Un vecteur propre ne pouvant jamais se réduire au vecteur nul, et le produit scalaire hilbertien étant non-dégénéré, il vient $a = \bar a$, soit $a\in\mathbb{R}$.
+}
+
+\item
+Montrer que les vecteurs propres correspondant à deux valeurs propres distinctes sont orthogonaux. \\
+
+\ans{
+Soient $a$ et $a'$ deux valeurs propres distinctes ($a\neq a'$) associées aux vecteurs propres $\ket{a}$ et $\ket{a'}$. On peut calculer directement
+\begin{equation}
+\braket{a|\hat A|a'} = a' \braket{a|a'}, \label{expr1}
+\end{equation}
+ou utiliser l'hermiticité
+\begin{equation}
+\braket{a|\hat A|a'} =\braket{a|\hat A^\dagger|a'} = (\hat A \ket{a})^\dagger \ket{a'} = (a\ket{a})^\dagger \ket{a'} = \bar a \braket{a|a'}. \label{expr2}
+\end{equation}
+En combinant \eqref{expr1} et \eqref{expr2}, il vient sans peine $(a'-a)\braket{a|a'} = 0$. Comme on a supposé que $a\neq a'$, on déduit le résultat escompté $\braket{a|a'} = 0$. 
+}
+
+\end{enumerate}
+
+\paragraph{Question 2} \textit{Oscillateur harmonique quantique.} \\
+
+Considérons un oscillateur harmonique de pulsation propre $\omega$. En unités sans dimensions ($\hbar=1$), les opérateurs position $\hat X$ et impulsion $\hat P$ obéissent à la relation de commutation canonique $[\hat X, \hat P]=i $. \\
+
+Les opérateurs de création et destruction sont définis par 
+$\hat a= \frac{1}{\sqrt{2}}(\hat X+i\hat P)$, $a^\dagger= \frac{1}{\sqrt{2}}(\hat X-i\hat P)$ et satisfont donc $[\hat a,\hat a^\dagger]=1$. \\
+
+L'opérateur nombre $\hat N$ est donné par $\hat N= \hat a^\dagger \hat a$ et ses vecteurs propres sont notés $\hat N \ket{n} =n \ket{n}$ où $n \in \mathbb{N}$. On peut montrer que $\hat a \ket{n} =\sqrt{n} \ket{n-1}$ et que $\hat a^\dagger \ket{n} =\sqrt{n+1} \ket{n+1}$. L'hamiltonien de l'oscillateur harmonique est $\hat H = \frac{1}{2}\omega ( \hat P^2 + \hat X^2 )\ $. \\
+
+Soit l'état quantique 
+\begin{equation}
+\vert \psi \rangle = 
+ \frac{1}{\sqrt{5}}\vert 0\rangle -  \frac{1}{\sqrt{5}}\vert 1\rangle  - \frac{1}{\sqrt{5}}\vert 2\rangle + \frac{\sqrt{2}}{\sqrt{5}}\vert 4\rangle \ .
+ \label{Eq:psi}
+\end{equation}
+
+Considérons l'opérateur
+\begin{equation}
+\hat \Pi_{\text{pair}}=\sum_{m=0}^\infty \vert 2m \rangle \langle 2m \vert \ .
+\end{equation}
+
+
+\begin{enumerate}
+\item Que vaut $\langle \psi \vert a \vert \psi \rangle$ ? \\
+
+\ans{
+On calcule aisément que 
+$ a \vert \psi \rangle = 
+-  \frac{1}{\sqrt{5}}\vert 0\rangle  - \frac{\sqrt{2}}{\sqrt{5}}\vert 1\rangle + \frac{2\sqrt{2}}{\sqrt{5}}\vert 3\rangle$.
+
+Par conséquent
+$\langle \psi \vert a \vert \psi \rangle = -  \frac{1}{{5}} -  \frac{\sqrt{2}}{{5}} = -  \frac{1+ \sqrt{2}}{{5}}$
+}
+
+
+\item L'opérateur $\hat \Pi_{\text{pair}}$ est hermitien. Montrer que c'est un projecteur. \\
+
+\ans{
+Pour montrer que $\hat \Pi_{\text{pair}}$ est un projecteur, il faut prouver que l'opérateur est idempotent $\hat \Pi_{\text{pair}}^2 = \hat \Pi_{\text{pair}}$. Il suffit d'utiliser l'orthogonalité des vecteurs de la base de Fock $\lbrace \ket{n}\rbrace_{n\in\mathbb{N}}$.
+\begin{equation}
+\hat \Pi_{\text{pair}}^2 = \sum_{m,n=0}^\infty \ket{2m}\braket{2m|2n}\bra{2n} = \sum_{m,n=0}^\infty \ket{2m} \bra{2n} \delta_{m,n} = \sum_{m=0}^\infty \ket{2m}\bra{2m} = \hat \Pi_{\text{pair}}.
+\end{equation}
+Vu que $\hat \Pi_{\text{pair}}$ est également hermitien, il s'agit d'un projecteur orthogonal. 
+}
+
+
+\item Puisque $\hat \Pi_{\text{pair}}$ est un projecteur, la mesure de cet opérateur ne peut donner que deux résultats : $0$ ou $1$. Si on mesure l'opérateur $\hat \Pi_{\text{pair}}$ sur l'état $\vert \psi \rangle$, quelle est la probabilité de trouver le résultat $1$ ? \\
+
+\ans{
+On remarque que $\hat \Pi_{\text{pair}}$ est diagonal dans la base des états propres d'énergie. Ses vecteurs propres sont ainsi les vecteurs propres d'énergie. En tant que projecteur, il possède 2 valeurs propres $1$ et $0$. Chacune de ces valeurs propres sont infiniment dégénérées, car n'importe quel vecteur $\ket{2n}$ pour tout $n\in\mathbb{N}$ est vecteur propre de $\hat \Pi_{\text{pair}}$ avec valeur propre $1$
+\begin{equation}
+\hat \Pi_{\text{pair}} \ket{2n} = \sum_{m=0}^\infty \ket{2m}\braket{2m|2n} = \sum_{m=0}^\infty \ket{2m} \delta_{m,n} = \ket{2n},
+\end{equation}
+tandis que n'importe quel vecteur $\ket{2n+1}$ est également vecteur propre avec valeur propre $0$
+\begin{equation}
+\hat \Pi_{\text{pair}} \ket{2n+1} = \sum_{m=0}^\infty \ket{2m}\braket{2m|2n+1} = \sum_{m=0}^\infty \ket{2m} \delta_{2m,2n+1} = 0.
+\end{equation}
+Mieux encore, l'opérateur $\hat \Pi_{\text{pair}}$ commute donc avec $\hat H$. Les états propres du système sont ainsi organisés selon leur parité. En particulier, $\hat \Pi_{\text{pair}}$ projette sur l'ensemble des états de parité paire de l'oscillateur. Ceci est attendu du fait que le potentiel lui-même possède une parité définie (paire). La densité de probabilité de présence $|\psi(x)|^2$ hérite de cette parité, d'où les fonctions d'onde $\psi(x)$ s'organisent en fonctions paires et impaires. \\
+
+Si le système est dans l'état $\ket{\psi}$, la probabilité de mesurer la parité et d'obtenir $1$ est
+\begin{equation}
+P(1) = \sum_{n=0}^\infty |\braket{2n|\psi}|^2
+\end{equation}
+où l'on somme bien évidemment sur la dégénérescence de la valeur propre $1$. On développe
+\begin{equation}
+P(1) = |\braket{0|\psi}|^2 + |\braket{2|\psi}|^2 + |\braket{4|\psi}|^2 = \frac{1}{5}+\frac{1}{5}+\frac{2}{5} = \boxed{ \frac{4}{5}}
+\end{equation}
+On vérifie aisément que $P(0) = |\braket{1|\psi}|^2 = 1 - P(1)$.
+}
+ 
+\item Si la mesure de $\hat \Pi_{\text{pair}}$ sur l'état $\vert \psi \rangle$ donne le résultat $1$, quel est l'état (normalisé) de l'oscillateur après la mesure ? 
+
+\ans{
+Le projecteur va annihiler les composantes des vecteurs qui sont externes au sous-espace propre dans lequel il projette. Ici, le sous-espace en question est l'ensemble des vecteurs engendrés par les vecteurs de base indicés par un nombre pair. L'état (normalisé) après projection est donc
+\begin{equation}
+\boxed{ \ket{\psi'} = \frac{1}{\sqrt{4}} \left( \ket{0} - \ket{2} + \sqrt{2}\ket{4} \right). }
+\end{equation}
+}
+
+
+\end{enumerate}
+
+
+\paragraph{Question 3} \textit{Systèmes en dimension 2.} \\
+
+Soit un système à spin $1/2$. Une base de l'espace de Hilbert associé est $\lbrace\ket{\uparrow}, \ket{\downarrow}\rbrace$, qui sont les états propres de $\sigma_z$ de valeurs propres $+1$ et $-1$, respectivement. \\
+
+Supposons qu'à l'instant $t=0$, le spin est dans l'état propre de $\sigma_z$ de valeur propre $+1$ : $\ket{\psi(t=0)} = \ket{\uparrow} \ .$ Supposons en outre que le spin est plongé dans un champ magnétique orienté suivant l'axe $x$. Dû à son moment magnétique, l'hamiltonien du spin est donc $H=\omega \, \sigma_x\ .$
+
+\textit{Note :} vous pouvez travailler en unités où $\hbar =1$. \\
+
+\begin{enumerate}
+\item
+Quel est l'état $\vert \psi(t)\rangle$ à l'instant $t>0$ ? \\
+
+
+
+\ans{
+Pour un système conservatif, la solution générale de l'équation de Schrödinger $i\frac{d}{dt}\ket{\psi(t)} = \hat H\ket{\psi(t)}$ est donnée par $\ket{\psi(t)} = \hat U(t,t_0) \ket{\psi(t_0)}$ où $\hat U(t,t_0)$ est l'opérateur (unitaire) d'évolution défini par $\hat U(t,t_0) \equiv e^{-i\hat H (t-t_0)}$. Pour pouvoir calculer facilement l'exponentielle de l'opérateur hamiltonien, on effectue un changement de base vers la base d'états propres de $\hat H$. \\
+
+Dans la base des états propres de $\sigma_z$, on a 
+\begin{equation}
+H = \omega\,\sigma_x = \omega\left[
+\begin{array}{cc}
+0 & 1 \\
+1 & 0
+\end{array}
+\right].
+\end{equation}
+Les valeurs propres d'énergie sont donc $\pm \omega$, respectivement associées aux vecteurs propres
+\begin{equation}
+\begin{split}
+\ket{+} = \frac{1}{\sqrt{2}} (\ket{\uparrow}+\ket{\downarrow}), \\
+\ket{-} = \frac{1}{\sqrt{2}} (\ket{\uparrow}-\ket{\downarrow}). \label{eq:PlusMoins}
+\end{split}
+\end{equation}
+On peut renverser ces égalités pour obtenir $\ket{\uparrow} = \frac{1}{\sqrt{2}}(\ket{+}+\ket{-})$ et $\ket{\downarrow} = \frac{1}{\sqrt{2}}(\ket{+}-\ket{-})$. On obtient aisément l'expression de l'opérateur d'évolution (on fixe désormais $t_0 = 0$) :
+\begin{equation}
+\hat U(t) = e^{-i\omega t} \ket{+}\bra{+} + e^{i\omega t} \ket{-}\bra{-}.
+\end{equation}
+Son action sur l'état initial $\ket{\psi(0)} = \ket{\uparrow}$ est donc
+\begin{equation}
+\begin{split}
+\ket{\psi(t)} &= \hat U(t) \ket{\psi(0)} = \hat U(t) \ket{\uparrow} \\
+&= \frac{1}{\sqrt{2}} (e^{-i\omega t} \ket{+}\bra{+} + e^{i\omega t} \ket{-}\bra{-}) (\ket{+}+\ket{-}) \\
+&= \frac{1}{\sqrt{2}} (e^{-i\omega t} \ket{+} + e^{i\omega t} \ket{-}).
+\end{split}
+\end{equation}
+On peut réintroduire les définitions \eqref{eq:PlusMoins} pour obtenir le vecteur évolué dans la base originale :
+\begin{equation}
+\begin{split}
+\ket{\psi(t)} &= \frac{1}{2} \Big[  e^{-i\omega t} (\ket{\uparrow}+\ket{\downarrow}) + e^{i\omega t} (\ket{\uparrow}-\ket{\downarrow})  \Big] \\
+&= \boxed { \cos \omega t \ket{\uparrow} - i \sin \omega t \ket{\downarrow}. }
+\end{split}
+\end{equation}
+}
+
+\item
+En utilisant votre réponse à la question précédente, quelle est la probabilité $P_\uparrow(t)$ qu'une mesure de l'opérateur $\sigma_z$ à l'instant $t$ sur  l'état $\vert \psi(t)\rangle$ donne le résultat $+1$?
+\\ 
+
+
+
+\ans{
+Par le Postulat 3, la probabilité de mesurer $\sigma_z = 1$ à l'instant $t$ équivaut à $P_\uparrow (t) = |\braket{\uparrow|\psi(t)}|^2$. On a donc $P_\uparrow(t) = \cos^2\omega t$.}
+
+\item Faire un graphique de $P_\uparrow(t)$ en fonction du temps.
+\\
+
+\item À quels instants $\sigma_z=+1$ avec certitude (c'est-à-dire avec probabilité $1$) ? \\
+
+\ans{
+$P_\uparrow(t) = \cos^2\omega t$  vaut $1$ pour les instants discrets $t = \frac{k\pi}{\omega}$ où $k\in\mathbb{N}$.
+}
+
+
+\end{enumerate}
+
+\paragraph{Question 4} \textit{Particule dans un puits de potentiel infini avec une barrière $\delta$.} \\
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[scale=0.75]
+\draw[->] (-6,0) -- (6,0) node[right]{$x$};
+\draw[->] (-6,0) -- (-6,5) node[above]{$V$};
+\draw[very thick]  (-4,6) -- (-4,0);
+\draw  (-0.1, 4) -- (-0.1,0);
+\draw  (-0.1, 4) -- (0.1,4);
+\draw  (0.1, 4) -- (0.1,0);
+\draw[very thick]  (4,6) -- (4,0);
+%\node at (6,-0.5) {$x$};
+%\node at (-6.5,5) {$V$};
+\node at (-4,-0.5) {$-\frac{L}{2}$};
+\node at (0,-0.5) {$0$};
+\node at (4,-0.5) {$+\frac{L}{2}$};
+\node[above] at (0,4) {$\uparrow$};
+\node[above] at (0,4.6) {$\infty$};
+\fill[pattern=north east lines, pattern color=black] (4,0) rectangle (4.25,6);
+\fill[pattern=north west lines, pattern color=black] (-4,0) rectangle (-4.25,6);
+\end{tikzpicture}
+\caption{Représentation schématique du potentiel $V(x)$ de l'équation \eqref{Eq:SchrDelta}: $V$ est infini pour $x<-\frac{L}{2}$ et pour $x>\frac{L}{2}$. En outre un potentiel $\delta$ est présent en $x=0$.}
+\end{figure}
+
+Considérons une particule de masse $m$ confinée entre $x= -\frac{L}{2}$ et $x =+\frac{L}{2}$. En $x=0$ se trouve une mince barrière de potentiel. Nous modélisons la barrière de potentiel par une fonction $\delta$. \\
+
+L'équation de Schrödinger stationnaire pour la particule est donc
+\begin{equation}
+-\frac{\hbar^2}{2m} \frac{d^2}{d x^2} \psi(x) + \alpha \delta(x) \psi(x)= E \psi(x)
+\label{Eq:SchrDelta}
+\end{equation}
+avec $\alpha>0$ et les conditions aux bords $\psi(-\frac{L}{2})=\psi(+\frac{L}{2})=0$.
+
+
+\begin{enumerate}
+\item Quels sont les états propres normalisés de l'Hamiltonien lorsque $\alpha=0$ et quelles sont leurs énergies? 
+Donner séparément les états propres pairs et impairs.
+\\
+
+\ans{
+On résout l'équation $-\frac{\hbar^2}{2m} \frac{d^2}{d x^2} \psi(x) = E \psi(x)$ pour la fonction $\psi(x)$. La solution générale est 
+\begin{equation}
+\psi(x) = A \cos kx + B \sin kx,\, k = \sqrt{\frac{2mE}{\hbar^2}}\in\mathbb{R}.
+\end{equation}
+Le potentiel étant pair (invariant sous la réflexion $x\to -x$), la probabilité de présence $|\psi(x)|^2$ est paire, et les fonctions d'onde propres possèdent une parité définie.
+\begin{itemize}[label=$\rhd$]
+\item \underline{\textit{États pairs}} : vu que $\cos(-\theta) = \cos \theta$, ils seront de la forme $\psi^{(p)} (x) = A \cos kx$. On peut toujours fixer la phase telle que $A$ soit un nombre réel. Vu que la fonction d'onde doit s'annuler en $x = \frac{L}{2}$ (la probabilité de présence y est nulle), on obtient une condition de quantification du nombre d'onde :
+\begin{equation}
+\cos \frac{kL}{2} = 0 \Rightarrow k L = (2n+1)\pi, \, n\in\mathbb{N}.
+\label{Eq:cos}
+\end{equation}
+Noter que $\cos kx$ étant une fonction paire, nous pouvons restreindre aux $k\geq 0$ (les $k$ négatifs donnant la même solution). Ceci implique la restriction aux $n$ entiers positifs dans l'équation \eqref{Eq:cos}.
+
+Les états propres pairs sont donc donnés par
+\begin{equation}
+\boxed{
+\psi_n^{(p)} (x) = A \cos \Big[ \frac{(2n+1)\pi}{L} x \Big], \quad E_n^{(p)} = \frac{(2n+1)^2\pi^2\hbar^2}{2m}, \quad  n\in\mathbb{N}\ .
+}
+\end{equation}
+On détermine enfin la constante de normalisation $A$ :
+\begin{equation}
+\begin{split}
+\int_{-\frac{L}{2}}^{+\frac{L}{2}} dx \, |\psi_n^{(p)} (x)|^2 &= 2 \int_{0}^{\frac{L}{2}} dx \, A^2 \cos^2 \Big[ \frac{(2n+1)\pi}{L} x \Big] \\
+&= \int_{0}^{\frac{L}{2}} dx \, A^2 \Big[ 1 + \cos \Big[ (2n+1)\frac{2\pi}{L} x \Big] \Big] \\
+&= \frac{L}{2} A^2 + A^2 \Big( (2n+1)\frac{2\pi}{L} \Big)^{-1} \left[ \sin \Big[ (2n+1)\frac{2\pi}{L} x \Big] \right]_{0}^{\frac{L}{2}} \\
+&= \frac{L}{2} A^2 \alpha^2 + 0 = 1 \Rightarrow \boxed{A = \sqrt{\frac{2}{L}}.}
+\end{split}
+\end{equation}
+\item \underline{\textit{États impairs}} : vu que $\sin(-\theta) = -\sin \theta$, il s'agit de la branche complémentaire $\psi^{(i)} (x) = B \sin kx$. On fixe à nouveau la phase telle que $B$ soit un nombre réel. L'annulation de la fonction d'onde en $x = \frac{L}{2}$ conduit cette fois à une autre condition de quantification :
+\begin{equation}
+\sin \frac{kL}{2} = 0 \Rightarrow k L = 2n\pi, \, n\in\mathbb{N}_0.
+\label{Eq:sin}
+\end{equation}
+La fonction $\sin$ étant impaire, nous pouvons restreindre aux $k\geq 0$ (les $k$ négatifs donnant la même solution). En outre $k=0$ donne une solution identiquement nulle, et ne peut donc pas représenter une densité de probabilité de présence (dont l'intégrale du module carré doit donner 1). Pour ces raisons on se restreint aux entiers $n$ strictement positifs dans l'équation \eqref{Eq:sin}.
+
+ Les états propres impairs s'écrivent explicitement :
+\begin{equation}
+\boxed{
+\psi_n^{(i)} (x) = B \sin \Big[ \frac{2n\pi}{L} x \Big], \quad E_n^{(i)} = \frac{(2n)^2\pi^2\hbar^2}{2m}, \quad  n\in\mathbb{N}_0\ .
+}
+\end{equation}
+Il n'est pas difficile de constater que la valeur de la constante de normalisation $B$ est également $B = \sqrt{\frac{2}{L}}$. 
+\end{itemize}
+
+Pour conclure, on peut réunir les deux classes de solutions. Les niveaux d'énergie du système sont donnés par
+\begin{equation}
+\boxed{ E_n = \frac{n^2\pi^2\hbar^2}{2m} }
+\end{equation}
+où $n$ est un nombre naturel \textit{non-nul}. L'état $n=1$ de plus basse énergie est appelé \textit{niveau fondamental} et possède une énergie résiduelle non-nulle (énergie de point zéro). Les fonctions d'onde associées à ces niveaux d'énergie sont notées $\psi_m (x)$ et possèdent la parité de $m$ :
+\begin{equation}
+\boxed{
+\begin{split}
+&\text{ Si } m \text{ est pair, } \psi_m (x) = \sqrt{\frac{2}{L}} \cos \Big( \frac{m\pi}{L}x \Big), \\
+&\text{ Si } m \text{ est impair, } \psi_m (x) = \sqrt{\frac{2}{L}} \sin \Big( \frac{m\pi}{L}x \Big).
+\end{split} }
+\label{Eq:SolutionsGen}
+\end{equation}
+}
+
+\item Dorénavant nous considérons $\alpha \neq  0$. Quelles sont les conditions de raccord qu'il faut imposer en $x=0$ pour tenir compte du potentiel $\delta$ ? \\
+
+\ans{
+Considérons un intervalle centré en $0$ et de rayon $\varepsilon >0$ quelconque fixé, et pouvant être arbitrairement proche de zéro. Intégrons l'équation \eqref{Eq:SchrDelta} sur cet intervalle.
+\begin{equation}
+-\frac{\hbar^2}{2m} \int_{-\varepsilon}^{+\varepsilon} dx \, \frac{d^2}{d x ^2} \psi(x) + \alpha \int_{-\varepsilon}^{+\varepsilon} dx \, \delta(x) \psi(x) = E \int_{-\varepsilon}^{+\varepsilon} dx \, \psi(x)
+\end{equation}
+\begin{itemize}[label=$\rhd$]
+\item Le premier terme donne $-\frac{\hbar^2}{2m} [\frac{d\psi}{dx}(+\varepsilon) - \frac{d\psi}{dx}(-\varepsilon)]$ en vertu du Théorème Fondamental du Calcul Intégral.
+\item Pour évaluer le second terme, on sait que la distribution $\delta(x)$ peut se représenter comme une fonction impropre nulle presque partout sur $\mathbb{R}$, sauf en $x = 0$ où elle prend une valeur techniquement infinie pour assurer que $\int_{\mathbb{R}} dx \, \delta (x) = 1$. Modifier le rayon $\varepsilon$ de l'intervalle d'intégration ne change donc pas la valeur numérique du second terme, qui peut donc se ramener à $\alpha \int_{\mathbb{R}} dx \, \delta(x)\psi(x) = \alpha \psi(0)$.
+\item Le dernier terme peut être majoré grâce à la monotonie de l'intégrale. En effet, vu que la densité de probabilité de présence ne peut jamais être infinie en un point, on a $|\psi(x)| \leq \kappa$, $\forall x \in [-\varepsilon,+\varepsilon]$, où $\kappa$ est un réel positif. Donc
+\begin{equation}
+E \left|\int_{-\varepsilon}^{+\varepsilon} dx \, \psi(x)\right| \leq E \int_{-\varepsilon}^{+\varepsilon} dx \, |\psi(x)| \leq 2\varepsilon E \kappa = \mathcal{O}(\varepsilon).
+\end{equation}
+
+\end{itemize}
+En prenant la limite $\varepsilon\to 0$, il vient donc $-\frac{\hbar^2}{2m} [\frac{d\psi}{dx}(0^+) - \frac{d\psi}{dx}(0^-)] + \alpha \psi(0)=0$ soit
+\begin{equation}
+\frac{d\psi}{dx}(0^+) - \frac{d\psi}{dx}(0^-) = \frac{2m\alpha}{\hbar^2} \psi(0). \label{eq:RaccordDerivee}
+\end{equation}
+En intégrant une seconde fois sur $[-\varepsilon,+\varepsilon]$, on montre de manière analogue que la fonction d'onde doit être continue en $0$, soit $\psi(0^-) = \psi(0^+)$. 
+}
+
+\item
+Le potentiel dans l'équation \eqref{Eq:SchrDelta} est pair. Par conséquent les fonctions d'ondes propres commutent avec l'opérateur parité, et peuvent donc être choisies paires ou impaires.
+
+Montrer que les fonctions d'ondes impaires solutions de l'équation avec $\alpha=0$ (trouvées au point 1) sont aussi solutions quand $\alpha\neq 0$ avec la même énergie. \\
+
+\ans{
+Considérons $\psi_m(x)$ solutions de l'équation de Schrödinger sans potentiel dérivées obtenues à l'équation \eqref{Eq:SolutionsGen}, et réduisons-nous à $m = 2n+1$ impair. Sur $[-\frac{L}{2},+\frac{L}{2}]\setminus \lbrace 0 \rbrace$, l'équation \eqref{Eq:SchrDelta} se réduit à $-\frac{\hbar^2}{2m} \frac{d^2}{d x^2} \psi(x) = E \psi(x)$ dont les $\psi_m(x)$ sont solutions par définition. Il reste donc à vérifier qu'elles satisfont les nouvelles conditions de raccord rendues nécessaires par la présence du potentiel $\delta$ inséré en $x=0$. \\
+
+Les $\psi_m(x)$ sont continûment différentiable en $x=0$. On a vu au point précédent que lorsque $\alpha\neq 0$, la dérivée première de la fonction d'onde subit un saut dont l'amplitude dépend linéairement de $\psi(0)$. Vu que $\psi_m (0) = 0$ du fait de leur parité impaire, la dérivée doit être continue, aussi bien que la fonction d'onde elle-même. Ce qui est bien le cas !
+}
+ 
+
+\item Considérons maintenant les solutions paires. En utilisant la condition de raccord trouvée au point 2, déterminer les niveaux d'énergie de ces solutions. 
+
+\textit{Note :} Ces niveaux d'énergie seront donnés par une équation transcendante que vous ne pourrez pas résoudre explicitement ! \\
+
+\ans{
+On démarre à nouveau en résolvant l'équation de Schrödinger dans la zone $0 < x <\frac{L}{2}$. Il vient comme au point 1 $\psi_+ (x) = A \cos k x  + B \sin k x$ où $\hbar k = \sqrt{2mE}$. La fonction étant paire, on peut directement déterminer sa forme dans la zone $-\frac{L}{2}<x<0$, c'est-à-dire $\psi_- (x) = A \cos kx - B \sin kx$. La fonction doit s'annuler aux bords $x=\pm\frac{L}{2}$. Il est bien évidemment suffisant de le vérifier pour, disons, $x = \frac{L}{2}$, ce qui donne :
+\begin{equation}
+A \cos \frac{kL}{2} + B \sin \frac{kL}{2} = 0 \Rightarrow B = -A \cot \frac{kL}{2}.
+\end{equation}
+
+Appliquons maintenant les conditions de raccord en $x=0$. 
+
+La fonction d'onde est 
+ continue et vaut $\psi_+ (0) = \psi_- (0) = A$. 
+ 
+On calcule le saut de dérivée première
+\begin{equation}
+\psi'_+ (0) - \psi'_- (0) = \frac{2m\alpha}{\hbar^2} \psi(0) \Leftrightarrow 2kB = \frac{2m\alpha}{\hbar^2} A \ .
+\end{equation}
+En introduisant la relation qui donne $B$ en terme de $A$, il vient
+\begin{equation}
+\cot \frac{kL}{2} =- \frac{m\alpha}{\hbar^2 k} \quad \Rightarrow\quad \boxed{ \cot\zeta = - \frac{m L\alpha} {2 \hbar^2}\frac{1}{\zeta},\ \zeta\equiv \frac{kL}{2}. }
+\end{equation}
+Quand $\alpha=0$ on retrouve le solutions trouvées précédemment: $\zeta_n = (2n+1) \pi/2$, $n\in\mathbb{N}_0$. On voit aussi facilement que quand $\alpha>0$, $\zeta_n$ est plus grand que quand $\alpha=0$, c'est à dire que la présence du potentiel $\alpha \delta(x)$ augmente l'énergie des états propres, ce à quoi on pouvait s'attendre. Mais pour avoir une solution précise, il faudrait résoudre cette équation transcendante numériquement ! 
+}
+\end{enumerate}

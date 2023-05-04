@@ -1,0 +1,219 @@
+\chapter{Formalisme de Dirac}
+
+\textit{Conventions.} Nous travaillons avec des espaces de Hilbert $\mathcal H$ dont les vecteurs sont représentés par les \textit{kets} $\ket{\psi}$. Les formes linéaires sur ces espaces sont écrites sous forme de \textit{bras} $\bra{\psi}$, de sorte que le produit scalaire dans $\mathcal H$ sera noté $\braket{\phi}{\psi}$, avec la notation \textit{braket} qui incorpore directement le théorème de représentation de Riesz. Les opérateurs agissant dans $\mathcal H$ seront toujours repérés par un accent circonflexe, $\hat A$, alors que les matrices qui les représentent dans une base donnée en seront dépourvues, $A$. Parmi les opérateurs, on comptera en particulier les produits dyadiques, représentés par $\ket{\psi}\bra{\phi}$, ainsi que l'identité, notée $\hat I$.\\
+$ $
+
+\paragraph{Exercice 1} \textit{Découverte du formalisme de Dirac.}
+\begin{enumerate}
+\item L'espace des états d'un système physique $S$ est à deux dimensions. Soit $\mathscr B = \lbrace \ket{\phi_1},\ket{\phi_2}\rbrace$ une base orthonormée de cet espace. On définit les \textit{kets} $\ket{\psi}$ et $\ket{\chi}$ par :
+	\begin{equation}
+	\ket{\psi} = 9i\ket{\phi_1} + 2 \ket{\phi_2} \quad ; \quad \ket{\chi} = \frac{1}{\sqrt{2}} \ket{\phi_1} -\frac{i}{\sqrt{2}} \ket{\phi_2}.
+	\end{equation}
+	
+\begin{enumerate}
+\item Calculez les produits scalaires $\braket{\psi}{\psi}$, $\braket{\chi}{\chi}$, $\braket{\psi}{\chi}$ et $\braket{\chi}{\psi}$. Déduisez-en la valeur du produit scalaire $\braket{\psi+\chi}{\psi+\chi}$. Les quantités $\braket{\psi}{\chi}$ et $\braket{\chi}{\psi}$ sont-elles égales ?
+\item Formez les opérateurs $\hat A = \ketbra{\psi}{\chi}$ et $\hat B = \ketbra{\chi}{\psi}$, sont-ils égaux ? Calculez leur trace, qu'observez-vous ?
+\item Établissez l'expression des opérateurs réalisant la projection orthogonale le long de $\ket{\psi}$ et $\ket{\chi}$ respectivement. Calculez leur trace. 
+\item On définit les vecteurs $\ket{\pm} = N(\ket{\phi_1}\pm\ket{\phi_2})$, où $N$ est une constante de normalisation à déterminer. Calculez les opérateurs de projection orthogonale sur ces vecteurs. Sont-ils hermitiens ? Montrez que leurs ensembles images sont orthogonaux. Calculez leur somme. Commentaires ?
+\item Montrez que $\ket{+}$ et $\ket{-}$ forment une nouvelle base $\mathscr B'$ orthonormale de $S$ et donnez la matrice de changement de base.
+\item Dans la base $\mathscr B$, un opérateur $\hat H$ est représenté par la matrice
+\begin{equation}
+H = \left[
+\begin{array}{cc}
+1 & \alpha \\
+\alpha & 1
+\end{array}
+\right], \,\,\alpha\in\mathbb R_0.
+\end{equation}
+Déterminez la représentation de $\hat H$ dans la nouvelle base $\mathscr B'$, d'une part en utilisant la procédure algébrique habituelle, et d'autre part, en se reposant uniquement sur la notation de Dirac. 
+\end{enumerate}
+
+\item Soit un espace de Hilbert $\mathscr H$ sur lequel agit l'opérateur $\hat H = \alpha \ketbra{\phi_1}{\phi_2} + h.c.$ où $\alpha\in\mathbb R_0$, et les $\ket{\phi_i}$ sont les vecteurs propres normalisés, et non-dégénérés, d'un opérateur $\hat A$ auto-adjoint pour le produit scalaire dont $\mathscr H$ est muni.
+\begin{enumerate}
+\item Déterminez $p,q\in\mathbb Z_0$ tels que $\hat P = \alpha^p \hat H^q$ soit un projecteur. Déterminez $\text{Ker}\,\hat P$ et $\text{Im}\, \hat P$. Commentaires ?
+\item Calculez le commutateur $[\hat H,\ketbra{\phi_1}{\phi_1}]$. Pouvez-vous en déduire $[\hat H,\ketbra{\phi_2}{\phi_2}]$ ?
+\item Sans construire explicitement la matrice de $\hat H$, trouvez les vecteurs propres de $\hat H$ ainsi que les valeurs propres correspondantes.
+\item Construisez la matrice représentant $\hat H$ dans la base que vous avez à votre disposition. Vérifiez alors vos résultats obtenus du point précédent.
+\end{enumerate}
+
+\end{enumerate}
+
+	
+\paragraph{Exercice 2} \textit{Base d'opérateurs.} \\
+Soit un espace de Hilbert de dimension $N\in\mathbb N_0$. On imagine qu'il existe un opérateur $\hat H$ agissant dans cet espace, qui soit hermitien et possède un ensemble de vecteurs propres non-dégénérés notés $\lbrace\ket{\varphi_n}\rbrace$. Pour les besoins de l'exercice, nous supposerons que ces vecteurs de base sont normés : $\braket{\varphi_n}{\varphi_n} = 1$, $\forall n$. 
+\begin{enumerate}
+	\item Justifiez que $\mathscr B = \lbrace\ket{\varphi_n}\rbrace_{n\in\mathbb{N}}$ constitue une base orthonormée de l'espace de Hilbert. 
+	\item Pour tout couple de naturels $(m,n)$, on définit l'opérateur $\hat U(m,n) = \ket{\varphi_m}\bra{\varphi_n}$. Interprétez l'action de $\hat U(m,n)$ lorsque $m\neq n$.
+	\item Quel sens donnez-vous à $\hat U(n,n)$ ? Montrez qu'il faut et il suffit que $\sum_{n=1}^N \hat U(n,n) = \hat I$ pour que $\mathscr B$ forme une base orthonormée de l'espace de Hilbert (\textit{relation de fermeture}).
+	\item Calculez l'adjoint de $\hat U(m,n)$ ainsi que le commutateur $[\hat H,\hat U(m,n)]$.
+	\item Calculez $\hat U(m,n) \hat U^\dagger (p,q)$, $\forall\, m,n,p,q \in \mathbb{N}_0$, ainsi que $\text{tr} [\hat U(m,n)]$. 
+	\item Soit un opérateur $\hat A$ dont les éléments de matrice dans la base $\mathscr B$ sont les nombres complexes $A_{mn}$. Démontrez la relation $\hat A = \sum_{m,n} A_{mn} \hat U(m,n)$.
+	\item Prouvez que si l'on dispose de l'opérateur $\hat A$ et de la collection d'opérateurs $\hat U(m,n)$, on peut facilement obtenir les composantes $A_{mn}$ en calculant $A_{mn} = \text{tr} [\hat A \hat U^\dagger (m,n)]$. Quel sens donnez-vous alors à $\hat U(m,n)$ ?
+\end{enumerate}
+	
+\paragraph{Exercice 3} \textit{Structures propres (2 dimensions).} \\
+Soit un opérateur hermitien $\hat A$ agissant dans un espace de Hilbert à 2 dimensions dont on considère la base orthonormée $\lbrace \ket{1},\ket{2}\rbrace$. Nous dénoterons par $A_{mn}$ l'élément de matrice $\langle m|\hat A|n\rangle$.
+\begin{enumerate}
+\item Montrez qu'il existe un opérateur hermitien $\hat A'$, sans dimensions et sans trace, tel que $\hat A = \frac{1}{2}\alpha\hat I+\frac{1}{2}\beta\hat A'$, avec $\alpha = \text{Tr}\hat A$. Donnez l'expression de $\beta$ et des $A'_{mn}$ en termes des $A_{mn}$.
+\item On définit les angles $\theta\in[0,\pi]$ et $\phi\in[0,2\pi[$ par $\theta = \text{arctan}\left[\frac{2|A_{21}|}{A_{11}-A_{22}}\right]$ et $\phi = \text{arg}(A_{21})$. Déterminez la structure propre de $\hat A'$ en fonction de $(\theta,\phi)$.
+\item Déduisez-en les valeurs et vecteurs propres de $\hat A$ en fonction de $(\theta,\phi)$. Commentaires ?
+\item À quelle condition le spectre de $\hat A$ est-il dégénéré ?
+\end{enumerate}
+
+\paragraph{Exercice 4} \textit{Structures propres (3 dimensions).} \\
+Soient deux transformations linéaires $\hat A,\hat B : \mathbb{R}^3 \to \mathbb{R}^3$ dont les matrices exprimées par rapport à la base canonique $\mathscr B$ de $\mathbb{R}^3$ sont
+\begin{equation}
+A = \left[ \begin{array}{ccc}
+0 & 1 & 0 \\ 
+1 & 0 & 1 \\ 
+0 & 1 & 0
+\end{array} \right] \quad ; \quad
+B = \left[ \begin{array}{ccc}
+1 & 2 & 0 \\ 
+2 & -1 & -2 \\ 
+0 & -2 & 1
+\end{array} \right].
+\end{equation}
+\begin{enumerate}
+\item Caractérisez l'opérateur $\hat A$, ainsi que son spectre. Est-il diagonalisable ? Donnez son expression dans la base canonique de $\mathbb R^{3\times 3}$. Mêmes questions pour $B$.
+\item Déterminez les valeurs propres, ainsi que les vecteurs propres normalisés de $\hat A$ et $\hat B$. 
+\item Montrez que les vecteurs propres de $\hat A$ forment une nouvelle base orthonormée complète $\mathscr B'$ par rapport au produit scalaire $\braket{\vec x}{\vec y} = \sum_i x_i y_i$ dans $\mathbb R^3$, et justifiez-le. 
+\item Calculez les matrices de projection sur les sous-espaces propres de $\hat A$. Vérifiez que ces projeteurs satisfont à des relations d'orthogonalité et de complétude. Interprétez cet état de fait.
+\item Déterminez et caractérisez l'opérateur $\hat U$ qui permet, par transformation de similitude, d'obtenir la forme de Jordan de $\hat A$, et donnez sa matrice dans les bases $\mathscr B$ et $\mathscr B'$.
+\item Calculez les matrices représentant $\hat A$ et $\hat B$ dans la base $\mathscr B'$ de deux façons différentes.
+\end{enumerate}
+\textit{Pour s'entraîner} : analysez la structure propre des opérateurs décrits par les matrices suivantes
+\[
+\left[
+\begin{array}{ccc}
+7 & 0 & 0 \\ 
+0 & 1 & -i \\ 
+0 & i & -1
+\end{array} 
+\right], \,
+\left[
+\begin{array}{ccc}
+0 & 1 & 2 \\ 
+1 &2 & 0 \\ 
+2 & 0 & 1
+\end{array} 
+\right], \,
+\left[
+\begin{array}{ccc}
+0 & -i & i \\ 
+-i & 0 & i \\ 
+i & i & 0
+\end{array} 
+\right], \,
+\left[
+\begin{array}{ccc}
+0 & -6 & -4 \\ 
+5 & -11 & -6 \\ 
+-6 & 9 & 4
+\end{array} 
+\right].
+\]
+$ $
+
+
+	
+\paragraph{Exercice 5} \textit{Projecteurs orthogonaux.}\\ 
+Il existe une classe bien utile d'opérateurs qui réalisent une projection sur un sous-espace qui soit orthogonal à son complémentaire. Cet exercice se fixe pour but de donner une caractérisation de ces projecteurs, dits \textit{orthogonaux}, ainsi que d'étudier leur composition.
+\begin{enumerate}
+\item Montrez que si $\hat P$ est un projecteur, alors $ \hat I - \hat P$ est également un projecteur, et déterminez les sous-espaces $\text{Ker}(\hat I - \hat P)$ et $\text{Im}(\hat I - \hat P)$.
+\item Démontrez qu'un projecteur $\hat P$ est orthogonal si et seulement si $\hat P = \hat P^\dagger$.
+\end{enumerate}
+Soient $\hat P_1$ le projecteur orthogonal sur le sous-espace vectoriel $\mathcal{E} _1$ de l'espace vectoriel $\mathcal{V}$, et $\hat P_2$ le projecteur orthogonal sur le sous-espace vectoriel $\mathcal{E}_2$.
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item Montrez que le produit $\hat P_1\hat P_2$ est un projecteur orthogonal si et seulement si $\hat P_1$ et $\hat P_2$ commutent. Si tel est le cas, quel est le sous-espace sur lequel projette $\hat P_1\hat P_2$ ?
+\item  Montrez que la somme $\hat P_1+\hat P_2$ est un projecteur orthogonal si et seulement si $\hat P_1\hat P_2$ est zéro. Dans ce cas, déterminez le sous-espace sur lequel projette $\hat P_1+\hat P_2$.
+\item Montrez que $\hat P_1 +\hat P_2 - \hat P_1\hat P_2$ est un projecteur orthogonal à condition que $\hat P_1$ et $\hat P_2$ commutent. Sur quel sous-espace cet opérateur projette-t-il ?
+\end{enumerate}
+
+
+\paragraph{Exercice 6} \textit{Opérateurs unitaires.} \\
+Nous savons désormais que les valeurs propres d'un opérateur hermitien sont réelles, et que les vecteurs propres associés à des valeurs propres distinctes sont orthogonaux. Nous allons prouver que les opérateurs unitaires, d'importance primordiale pour la Mécanique Quantique, jouissent de propriétés similaires.
+\begin{enumerate}
+\item Soit $\hat U$ un opérateur unitaire, $\hat U \hat U^\dagger = \hat U^\dagger \hat U = \hat I$. Montrez que les valeurs propres de $\hat U$ sont des nombres complexes de module $1$. 
+\item Montrez que les vecteurs propres de $\hat U$ associés à des valeurs propres \textit{distinctes} sont orthogonaux. 
+\end{enumerate}
+
+\paragraph{Exercice 7} \textit{Fonctions de matrices et d'opérateurs.} \\
+Soit $f(x)$ une fonction analytique d'une variable complexe. 
+\begin{enumerate}
+\item Pour une matrice $A$ à coefficients complexes, comment donner sens à $f(A)$ ?
+\item Soit $D$ une matrice diagonale. Calculez explicitement $f(D)$.
+\item Soient $M$ et $N$ deux matrices semblables. Montrez que $f(M)$ et $f(N)$ sont également semblables et donnez la transformation de similitude.
+\item Utilisez les résultats précédents pour expliciter $f(H)$ où $H$ est une matrice hermitienne.
+\newpage
+\item Concentrons-nous à présent sur les transformations de $\mathbb R^n$, où $n\in\mathbb N_0$. 
+\begin{enumerate}
+\item Soit $A$, une matrice de $\mathbb R^{n\times n}$. Définissez l'exponentielle matricielle $e^A$ et montrez qu'elle existe toujours.
+\item Montrez que $B = e^A$ est inversible, et donnez $B^{-1}$.
+\item Prouvez que $B$ est une transformation orthogonale si $A$ est antisymétrique.
+\end{enumerate}
+\item Particularisons maintenant aux transformations de l'espace euclidien $\mathbb R^3$, dont la base canonique est notée $\mathscr B = \lbrace \vec e_x,\vec e_y,\vec e_z \rbrace$. Considérons les 3 matrices suivantes, exprimées dans $\mathscr B$ :
+\begin{equation}
+L_x = \left[
+\begin{array}{ccc}
+0 & 0 & 0 \\ 
+0 & 0 & -1 \\ 
+0 & 1 & 0
+\end{array} 
+\right], \quad
+L_y = \left[
+\begin{array}{ccc}
+0 & 0 & 1 \\ 
+0 & 0 & 0 \\ 
+-1 & 0 & 0
+\end{array} 
+\right], \quad
+L_z = \left[
+\begin{array}{ccc}
+0 & -1 & 0 \\ 
+1 & 0 & 0 \\ 
+0 & 0 & 0
+\end{array} 
+\right].
+\end{equation}
+\begin{enumerate}
+\item Calculez $R_a (\theta) \equiv e^{\theta L_a}$ avec $a = x,y,z$ paramétrées par $\theta\in [0,2\pi[$.
+\item Que représentent les trois transformations linéaires dont les $R_a$ sont les matrices dans la base canonique $\mathscr B$ ?
+\item Calculez les matrices représentant des transformations \textit{infinitésimales} $R_a (\delta \theta)$ où le paramètre $\delta\theta \ll 1$. Déduisez-en le rôle des $L_a$.
+\item Calculez les commutateurs $[L_a,L_b] = L_aL_b-L_bL_a$, $\forall a,b \in \lbrace x,y,z \rbrace$. Commentaires ?
+\end{enumerate}
+\end{enumerate}
+
+
+\paragraph{Exercice 8} \textit{Propriétés des commutateurs.} \\
+Très souvent, nous allons essayer d’analyser les propriétés de systèmes physiques en regardant de plus près les propriétés des opérateurs qui agissent sur ce système. En particulier, on va très fréquemment s'intéresser aux propriétés des commutateurs de ces opérateurs, lesquels sont les analogues quantiques des crochets de Poisson classiques, par le truchement du Principe de Correspondance. Voici donc quelques exercices qui permettent de revoir ou de découvrir quelques propriétés très utiles du commutateur de deux opérateurs $[\hat A,\hat B] = \hat A\hat B-\hat B\hat A$.
+\begin{enumerate}
+\item Considérons trois opérateurs $\hat A$, $\hat B$ et $\hat C$. Prouvez les assertions suivantes :
+	\begin{enumerate}
+	\item Le commutateur est bilinéaire, antisymétrique et vérifie l'\textit{identité de Jacobi}\\ $[[\hat A,\hat B],\hat C] + [[\hat C,\hat A],\hat B] + [[\hat B,\hat C],\hat A] = 0$.
+	\item Le commutateur se distribue sur le produit $[\hat A,\hat B\hat C] = [\hat A,\hat B]\hat C + \hat B [\hat A, \hat C]$.
+	\end{enumerate}
+\item Supposez que $\hat A$ et $\hat B$ commutent avec leur commutateur $[\hat A,\hat B]$. Prouvez alors que $[\hat A,\hat B^n] = n \hat B^{n-1} [\hat A, \hat B]$ et $[ \hat A^n, \hat B] = n  \hat A^{n-1} [ \hat A, \hat B]$ ,$\forall n \in \mathbb{N}$.
+\item Généralisez le résultat précédent en montrant, pour toute fonction analytique $F( \hat B)$, que $[ \hat A,F( \hat B)] = [ \hat A, \hat B] F'( \hat B)$. 
+\item Démontrez qu'à condition que $\hat  A$ et $\hat  B$ commutent avec leur commutateur, on a
+\begin{equation}
+\exp(\hat  A) \exp(\hat  B) = \exp(\hat  A + \hat  B) \exp([\hat  A,\hat  B]/2).
+\end{equation}
+C'est un cas particulier de l'\textit{identité de Baker-Hausdorff}.
+\end{enumerate}
+	
+\paragraph{Exercice 9} \textit{Espace métrique de fonctions.} \\
+Soit $\mathcal W = \mathcal P_3([-1,1])$, l'ensemble des polynômes de degré au plus 3 définis sur l'intervalle $[-1,1]$ de la droite réelle, sur lequel on peut définir le produit scalaire
+\begin{equation}
+\langle \cdot|\cdot\rangle : \mathcal W \times \mathcal W\to\mathbb R : (f,g) \mapsto \langle f|g\rangle = \int_{-1}^{+1} dx\, f(x)g(x).
+\end{equation}
+\begin{enumerate}
+\item Montrez que $\mathcal W$ est un espace vectoriel de dimension $4$ dont la base canonique est $\lbrace 1,x,x^2,x^3 \rbrace$. On notera cette base $\mathscr B = \lbrace \ket 0,\ket 1,\ket 2,\ket 3\rbrace$. 
+\item Déterminez l'expression de l'opérateur $\hat D : \mathcal W\to \mathcal W : f(x) \mapsto f'(x)$ dans la base canonique.
+\item Exprimez de même l'opération de translation $\hat T_a : \mathcal W \to \mathcal W : f(x) \mapsto f(x+a)$, où $a$ est un nombre réel arbitrairement fixé.
+\item Montrez que $\hat T_a = \exp a \hat D$. En considérant la limite $a\ll 1$, interprétez le rôle de $\hat D$. Quel célèbre résultat retrouvez-vous ?
+\item Déterminez une base orthonormée de l'espace $\mathcal W$, notée $\lbrace \ket{P_n}\rbrace_{n=0}^3$. Écrivez votre résultat explicitement en termes de la coordonnée $x$ : vous obtenez ainsi les 4 premiers polynômes de Legendre !
+\item Considérez l'opérateur $\hat A = \hat D \circ [(1-x^2)\hat D]$. Montrez que $\hat A^\dagger = \hat A$.
+\item Calculez la matrice de $\hat A$ dans la base des polynômes de Legendre, qu'observez-vous ?
+\end{enumerate}

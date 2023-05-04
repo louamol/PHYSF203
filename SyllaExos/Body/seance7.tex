@@ -1,0 +1,155 @@
+\chapter{Produit tensoriel \& intrication}
+
+\paragraph{Exercice 1} \textit{Produits tensoriels d'espaces de Hilbert.} \\
+Soit $\mathcal B_A = \{ \vert 0 \rangle_A ,  \vert 1 \rangle_A\}$ une base orthonormée de l'espace de Hilbert $\mathcal H_A$, et $\mathcal B_B = \{ \vert 0 \rangle_B ,  \vert 1 \rangle_B\}$ une base orthonormée de l'espace de Hilbert $\mathcal H_B$. On se donne les états suivants, appartenant à $\mathcal H_A \otimes \mathcal H_B$ :
+\begin{equation}
+\left\lbrace
+\begin{split}
+\vert \alpha \rangle &= \vert 0 \rangle_A \vert 0 \rangle_B\ , \\
+\vert \beta \rangle &= \frac{1}{\sqrt{2}}\vert 0 \rangle_A \vert 0 \rangle_B +   \frac{1}{\sqrt{2}}\vert 1 \rangle_A \vert 1 \rangle_B\ , \\
+\vert \gamma \rangle &= \left( \frac{1}{\sqrt{2}}\vert 0 \rangle_A
++\frac{1}{\sqrt{2}}\vert 0 \rangle_A \right) \left(  \frac{\sqrt{3}}{2}
+\vert 0 \rangle_B  -  \frac{i}{2}\vert 1 \rangle_B  \right)\ , 
+ \\
+ \vert \delta\rangle &= 
+ \frac{1}{2}\vert 0 \rangle_A \vert 0 \rangle_B
+ +\frac{1}{2}\vert 0 \rangle_A \vert 1 \rangle_B
+  +\frac{1}{2}\vert 1 \rangle_A \vert 0 \rangle_B
+   -\frac{1}{2}\vert 1 \rangle_A \vert 1 \rangle_B\ .
+\end{split}
+\right.
+\end{equation}
+
+\begin{enumerate}
+\item Vérifiez que ces états sont tous normés.
+\item Calculez les produits scalaires entre tous ces états. \\
+\textit{Note :} il n'y a que $6=3!$ produits scalaires à calculer (par sesqui-linéarité) !
+\item Parmi ces états, lesquels sont intriqués ? Justifiez votre réponse ! \\
+\textit{Indication :} utilisez la décomposition de Schmidt.
+\end{enumerate}
+
+\paragraph{Exercice 2} \textit{Produits tensoriels d'opérateurs (1).} \\
+Soit $\hat A: \mathcal H_A \rightarrow \mathcal H_A$ et $\hat B: \mathcal H_B \rightarrow \mathcal H_B$ deux opérateurs linéaires agissant sur les espaces $\mathcal H_A$ et $\mathcal H_B$. On définit le produit tensoriel de ces opérateurs par
+\begin{equation}
+\begin{array}{ccccl}
+\hat A \otimes \hat B &:& \mathcal H_A \otimes \mathcal H_B &\rightarrow& \mathcal H_A \otimes \mathcal H_B \\
+& & \vert \psi \rangle_A \vert \phi \rangle_B &\mapsto &
+\left( \hat A \vert \psi \rangle_A \right) \left( \hat B \vert \phi \rangle_B \right)\ , 
+\end{array}
+\end{equation}
+et l'on étend l'action de $\hat A \otimes \hat B $ sur tout $\mathcal H_A \otimes \mathcal H_B $ par linéarité. Les opérateurs $\hat A$ et $\hat B$ peuvent être vus comme agissant dans $\mathcal H_A \otimes \mathcal H_B$ avec le prolongement trivial $\hat{\bm A} \stackrel{\text{not}}{=} \hat A \otimes \hat I_B$ et $\hat{\bm B} \stackrel{\text{not}}{=} \hat I_A \otimes \hat B$. Dans la pratique, on pourra souvent omettre le changement de typographie lorsque les sous-espaces dans lesquels agissent les opérateurs ont été clairement définis au préalable !
+\begin{enumerate}
+\item Montrez que les opérateurs $\hat{\bm A}$ et $\hat{\bm B}$ commutent (\textit{i.e.} $[\hat{\bm A},\hat{\bm B}]=0$).
+\item Supposons que $\hat A=\hat A^\dagger$ et $\hat B=\hat B^\dagger$ sont hermitiens, et dénotons leurs valeurs et vecteurs propres par $\hat A \ket{a_i}_A = a_i \ket{a_i}_A$, $\hat B \ket{b_j}_B = b_j \ket{b_j}_B$. Déterminez la structure propre des opérateurs $\hat{\bm A}+\hat{\bm B}$ et $\hat{\bm A}\hat{\bm B}$.
+\end{enumerate}
+
+\paragraph{Exercice 3} \textit{Produits tensoriels d'opérateurs (2).} \\
+Nous reprenons les définitions, notations et conventions de l'Exercice 1. Nous nous donnons également les opérateurs $\lbrace (\hat \sigma_x)_A, (\hat \sigma_y)_A,(\hat \sigma_z)_A\rbrace$ et $\lbrace (\hat \sigma_x)_B,(\hat \sigma_y)_B,(\hat \sigma_z)_B\rbrace$, respectivement représentés par les matrices de Pauli dans les bases orthonormales $\mathcal B_A$ et $\mathcal B_B$. Nous définissons enfin les trois opérateurs
+\begin{equation}
+(\hat\sigma_x)_A\otimes \hat I_B\ , \quad (\hat\sigma_z)_A\otimes (\hat \sigma_x)_B\ , \quad (\hat \sigma_z)_A\otimes (\hat \sigma_z)_B + (\hat \sigma_x)_A\otimes (\hat \sigma_x)_B\ .
+\end{equation}
+Calculez l'action de ces opérateurs sur les états $\ket{\alpha},\ket{\beta},\ket{\gamma},\ket{\delta}$.
+
+\paragraph{Exercice 4} \textit{Corrélations quantiques.} \\
+Soient deux particules quantiques $A$ et $B$, dont les états sont respectivement représentés par des vecteurs appartenant aux espaces de Hilbert $\mathcal{H}_A$ et $\mathcal H_B$. Nous travaillons dans les bases orthonormées $\mathcal B_A = \{ \vert 0 \rangle_A ,  \vert 1 \rangle_A\}$ et $\mathcal B_B = \{ \vert 0 \rangle_B ,  \vert 1 \rangle_B\}$. \\
+
+Le système se trouve dans l'état $\vert \Phi^+ \rangle = \frac{1}{\sqrt{2}}\vert 0 \rangle_A \vert 0 \rangle_B +   \frac{1}{\sqrt{2}}\vert 1 \rangle_A \vert 1 \rangle_B$. Supposons qu'on mesure la particule $A$ dans une nouvelle base orthonormale de $\mathcal H_A$ donnée par
+\begin{equation}
+\left\lbrace
+\begin{split}
+\vert 0'\rangle_A &= c \vert 0 \rangle_A + s \vert 0 \rangle_A \\
+\vert 1'\rangle_A &= -\overline{s} \vert 0 \rangle_A + \overline{c} \vert 0 \rangle_A 
+\end{split}
+\right.
+\end{equation}
+avec $c,s\in\mathbb C$ satisfaisant $\vert c\vert^2 + \vert s\vert^2=1$.
+\begin{enumerate}
+\item Quelles sont les probabilités de trouver les résultat $0'$ et $1'$ ?
+\item Quel est l'état de la particule $B$ conditionné au résultat de la mesure sur la particule $A$ ? \\
+\textit{Indication :} exprimez l'état $\vert \Phi^+ \rangle $ dans les bases $\{ \vert 0'\rangle_A , \vert 1'\rangle_A \}$ et $\{ \vert 0\rangle_B , \vert 1\rangle_B\}$, et inspirez-vous de la démarche suivie lors de l'analyse de la téléportation quantique...
+\end{enumerate}
+
+
+
+\paragraph{Exercice 5} \textit{\'Etat de Greenberger–Horne–Zeilinger.} \\
+L'état quantique suivant appartient à l'espace des états de 3 systèmes à 2 dimensions :
+\begin{equation}
+\vert GHZ \rangle = \frac{1}{\sqrt{2}}\vert 0 \rangle_A \vert 0 \rangle_B  \vert 0 \rangle_C+   \frac{1}{\sqrt{2}}\vert 1 \rangle_A \vert 1 \rangle_B \vert 1 \rangle_B .
+\end{equation}
+Considérons les opérateurs suivants :
+\begin{equation}
+\begin{split}
+&\hat \sigma_z\otimes \hat I\otimes \hat I\ , \quad \hat \sigma_z\otimes \hat \sigma_z \otimes \hat I\ ,\quad \hat \sigma_z\otimes \hat \sigma_z \otimes \hat \sigma_z\ , \quad \hat \sigma_x\otimes \hat \sigma_x \otimes \hat \sigma_x,\\
+&\hat \sigma_x\otimes \hat \sigma_x \otimes \hat \sigma_y\ , \quad  \hat \sigma_x\otimes \hat \sigma_y \otimes \hat \sigma_y\ , \quad  \hat \sigma_y\otimes \hat \sigma_y \otimes \hat \sigma_y\ .
+\end{split}
+\end{equation}
+
+
+L'état $\vert GHZ \rangle $ est un vecteur propre de certains de ces opérateurs. Lesquels ? Quelle est la valeur propre correspondante ? 
+
+\paragraph{Exercice 6} \textit{Exercice récapitulatif.} \\
+Soient deux espaces de Hilbert : $\mathcal H_A$  dont une base orthonormée est constituée des vecteurs $\vert 1\rangle_A$, $\vert 2\rangle_A$, $\vert 3\rangle_A$, et $\mathcal H_B$ dont une base orthonormée est constituée des vecteurs  $\vert 1\rangle_B$, $\vert 2\rangle_B$.
+\begin{enumerate}
+\item Écrivez une base de l'espace produit tensoriel $\mathcal H_A \otimes \mathcal H_B$. 
+\item Soient les états
+\begin{equation}
+\vert \psi \rangle_A = \frac{1}{2}\vert 1\rangle_A + 
+\frac{1}{2}\vert 2\rangle_A +
+\frac{1}{\sqrt{2}}\vert 3\rangle_A \ , \quad
+\vert \varphi \rangle_B = \frac{1}{3}\vert 1\rangle_B + 
+\frac{2\sqrt{2}}{3}\vert 2\rangle_B \ .
+\end{equation}
+Développez l'état $\vert \psi \rangle_A\otimes \vert \varphi \rangle_B$ dans la base obtenue au point précédent.
+\item Soit l'opérateur unitaire agissant sur l'espace $\mathcal H_A$
+\begin{equation}
+\hat U_A= \vert 1\rangle_A \langle 1 \vert_A - 
+\vert 2\rangle_A \langle 2 \vert_A 
++i
+\vert 3\rangle_A \langle 3 \vert_A \ .
+\end{equation}
+Calculez l'action de l'opérateur $\hat U_A$ sur les états suivants
+\begin{equation}
+\vert \psi \rangle_A \otimes \vert \varphi \rangle_B\ ,\quad 
+\frac{1}{\sqrt{2}} \vert 1\rangle_A
+\vert 1\rangle_B + \frac{1}{\sqrt{2}} \vert 2\rangle_A
+\vert 2\rangle_B\ ,\quad
+\frac{1}{\sqrt{2}} \vert 1\rangle_A
+\vert 2\rangle_B + \frac{1}{\sqrt{2}} \vert 3\rangle_A
+\vert 1\rangle_B\ .
+\end{equation}
+et calculez les normes des états résultants. Commentaires ?
+\item Soit l'opérateur Hamiltonien suivant :
+\begin{equation}
+\hat H= E \ \Big( \vert 1\rangle_A \langle 2 \vert_A
+\otimes \vert 2\rangle_B \langle 1 \vert_B
+ +
+  \vert 2\rangle_A \langle 1 \vert_A
+\otimes \vert 1\rangle_B \langle 2 \vert_B \Big)
+ \ .
+\end{equation}
+Déterminez la structure propre de $\hat H$ en fonction de $E\in\mathbb R_0$. Si l’état à l’instant $t=0$ est un des états étudiés au point 3, quel est l'état du système à l'instant $t>0$ ?
+\item Soit l'opérateur  
+\begin{equation}
+\hat S= \Big( \vert 1\rangle_A \langle 2 \vert_A
+ +
+  \vert 2\rangle_A \langle 1 \vert_A\Big)
+\otimes \hat I_B 
+ \ .
+\end{equation}
+\begin{enumerate}
+\item Supposons que l'on mesure l'observable représentée par $\hat S$. Quels sont les résultats possibles de la mesure ? Quels sont les sous-espaces propres correspondants ? 
+\item Supposons que l'on mesure cette observable sur les états définis au point 3. Quels sont les résultats de la mesure, et quelles sont leurs probabilités ?
+\end{enumerate}
+\item Mêmes questions pour l'opérateur défini par
+\begin{equation}
+\hat T= \Big( \vert 1\rangle_A \langle 2 \vert_A
+ +
+  \vert 2\rangle_A \langle 1 \vert_A\Big)
+\otimes\Big( \vert 1\rangle_B \langle 2 \vert_B
+ +
+  \vert 2\rangle_B \langle 1 \vert_B\Big)
+ \ .
+\end{equation}
+\textit{Note :} remarquez la structure particulière de $\hat T$, cela vous épargnera de nombreux calculs !
+
+\end{enumerate}

@@ -1,0 +1,228 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage{import}
+
+\import{Packages/}{custom_packages.tex}
+\import{Packages/}{custom_macros.tex}
+
+\title{Formalisme de Dirac: Rappel}
+\author{Louan Mol}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{Postulats de la Mécanique Quantique : Rappel}}
+\end{center}
+
+\vspace{1cm}
+
+\qquad 
+
+\section{Postulats}
+
+\paragraph{Postulat  sur les états.} À chaque instant, l'état d'un système physique est donné par un vecteur $\kp{}\in\H$ normalisé
+\begin{equation}
+    \braket{\psi}=1
+\end{equation}
+défini à une phase près : $\kp{}\sim e^{i\alpha}\kp{}$.
+
+\paragraph{Postulat sur l'évolution dans le temps.} Soit $\hH(t)$ l'Hamiltonien du système. L'évolution d'un état dans le temps est régi par l'\emph{équation de Schrödinger}:
+\begin{equation}
+    \boxed{i\hbar\p_t\ket{\psi(t)} = \hH(t)\ket{\psi(t)}}.\label{eq:schr}
+\end{equation}
+
+\paragraph{Système conservatif I.} On dit qu'un système est \emph{conservatif} lorsque son Hamiltonien ne dépend pas du temps. Dans ce cas, notons $\ket{\phi_n}$ les états propres de $\hH$ (formant une base orthonormée) associés aux valeurs propres $E_n$ respectivement\footnote{On suppose ici que ces valeurs propres ne sont pas dégénérées. On peut facilement adapter ces résultats au cas dégénéré.}. On peut alors écrire\footnote{L'expression \eqref{eq:hamconserv1} n'est valable que pour les systèmes conservatifs tandis que l'expression \eqref{eq:hamconserv2} est toujours valable.}
+\begin{align}
+    \hH &= \sum_n E_n\ket{\phi_n}\bra{\phi_n},\label{eq:hamconserv1}\\
+    \ket{\psi(t)} &= \sum_n c_n(t)\ket{\phi_n}\label{eq:hamconserv2}.
+\end{align}
+et l'équation de Schrödinger devient
+\begin{equation}
+    i\hbar\p_t c_n(t) = E_n c_n(t).
+\end{equation}
+Cette équation peut être résolue pour chaque coefficient $c_n(t)$ et on obtient $c_n(t)=c_n(t_0)e^{-\frac{i}{\hbar}E_n(t-t_0)}$. On a donc trouvé la solution générale à l'équation de Schrödinger:
+\begin{equation}
+    \boxed{\ket{\psi(t)} = \sum_n c_n(t_0)e^{-\frac{i}{\hbar}E_n(t-t_0)}\ket{\phi_n}}\label{eq:solgenschr}.
+\end{equation}
+En conclusion, pour résoudre l'équation de Schrödinger, si l'Hamiltonien est indépendant du temps, il suffit de diagonaliser l'Hamiltonien et de connaitre la décopomposition de l'état à l'instant initial sur la base des états propres.
+
+\paragraph{Remarques.}
+\begin{itemize}[label=\tb]
+    \item L'équation de Schrödinger est linéaire: si $\ket{\psi_1(t)}$ et $\ket{\psi_2(t)}$ sont des solutions, alors $\alpha\ket{\psi_1(t)}+\beta\ket{\psi_2(t)}$ est aussi une solution.
+    \item En utilisant l'équation \eqref{eq:schr} et sont hermitienne conjuguée, on peut montrer qu'un ket normé reste normé lorsqu'il évolue dans le temps: si $\braket{\psi(t_0)}=1$ alors $\braket{\psi(t)}=1$ aussi pour $t>t_0$. Autrement dit, l'équation de Schrödinger préserve le produit scalaire. Cela vient du fait que $\hH$ est hermitien.
+    \item Si l'on utilise la solution générale \eqref{eq:solgenschr} pour déterminer l'évolution d'un état propre $\ket{\phi_n(t)}$ de $\hH$, on trouve que
+    \begin{equation}
+        \ket{\phi_n(t)}=e^{-\frac{i}{\hbar}E_n t}\ket{\phi_n}.
+    \end{equation}
+    La seule dépendance dans le temps est sous forme d'une phase globale ce qui veut dire que l'état physique reste le même. En d'autres termes, les états propres de l'Hamiltonien sont des états stationnaires. Si un système est initialement dans cet état, il reste dans cet état.
+\end{itemize}
+
+
+\paragraph{Postulat sur les mesures.} À toute grandeur observable est associé un opérateur hermitien sur $\H$. Ces derniers sont donc aussi appelés \emph{observables}. 
+
+Soit $\hA$ une observable dont les valeurs propres sont $\{a_i\}$ et où $\{\ket{a_i,m}\}_{i,l}$ est la base orthonormée formée par les vecteurs propres. $\ket{a_i,l}$ est un vecteur propre associé à la valeur propre $a_i$ et où l'indice $l$ tient compte d'une potentielle dégénérescence de la valeur propre $a_i$. L'opérateur de projection orthogonale sur le sous-espace propre associé à la valeur propre $a_i$ est alors
+\begin{equation}
+    \hP_{a_i} = \sum_{l}\ket{a_i,l}\bra{a_i,l}
+\end{equation}
+de sorte que
+\begin{equation}
+    \hA = \sum_{i} a_i\hP_{a_i}.
+\end{equation}
+
+Les mesures fonctionnent comme suit:
+\begin{enumerate}
+    \item Les résultats possibles de la mesure sont les valeurs propres $a_i$ de $\hA$.
+    \item Parmi ces valeurs, le résultat obtenu est fondamentalement aléatoire. On peut seulement prédire les probabilités des différentes mesures. Si le système est dans l'état $\kp{}$ au moment de la mesure, la probabilité de mesurer $a_i$ est donnée par
+    \begin{equation}
+        \boxed{\P(a_i) = \bra{\psi}\hP_{a_i}\kp{}}.\label{eq:probames}
+    \end{equation}
+    Notons que 
+    \begin{equation}
+        \boxed{\bra{\psi}\hP_{a_i}\kp{}=\norm{\hP_{a_i}\kp{}}^2 = \sum_l \abs{\braket{a_i,l}{\psi}}^2}.\label{eq:probames2}
+    \end{equation}
+    Autrement dit, la probabilité de mesurer $a_i$ est donnée par le carré de la norme de la projection de $\kp{}$ sur le sous-espace propre associé à $a_i$.
+    \item Mesurer perturbe fondamentalement le système, son état se voit transformé comme suit:
+    \begin{equation}
+        \kp{} \xrightarrow[]{\text{mesure}} \frac{\hP_{a_i}\kp{}}{\sqrt{\bra{\psi}\hP_{a_i}\ket{\psi}}}.
+    \end{equation}
+    Autrement dit, mesurer projette l'état du système sur le sous-espace propre associé à la valeur propre observée.
+\end{enumerate}
+
+
+
+\paragraph{Remarques.}
+\begin{itemize}[label=\tb]
+    \item La formule \eqref{eq:probames} définit bien des probabilités. En effet, \eqref{eq:probames2} montre bien que $\P(a_i)\geq0$ et on peut voir que
+    \begin{equation}
+        \sum_i \P(a_i) = \sum_i \bra{\psi}\hP_{a_i}\kp{} = \bra{\psi}\underbrace{\sum_i\hP_{a_i}}_{\mathbbm{1}}\kp{} = 1.
+    \end{equation} 
+    \item Dans le premier postulat, il est précisé que deux kets qui ne diffèrent que par une phase décrivent le même état physique. On peut voir que, sous la transformation $\kp{}\mapsto e^{i\alpha}\kp{}$, les probabilités sont invariantes:
+    \begin{equation}
+        \bra{\psi}\hP_{a_i}\kp{} \mapsto \bra{\psi}e^{-i\alpha}\hP_{a_i}e^{i\alpha}\kp{} = \bra{\psi}\hP_{a_i}\kp{}.
+    \end{equation}
+    Donc les probabilités de mesure dépendent juste de l'état physique.
+    \item Le fait qu'une observable corresponde toujours à un opérateur hermitien assure que les valeurs observées soient toujours des nombres réels.
+    \item L'Hamiltonien est hermitien donc c'est une observable. C'est l'énergie totale.
+\end{itemize}
+
+
+
+\section{Généralités sur les observables}
+
+\paragraph{Moyenne et écart quadratique moyen.} Pour un état donné $\ket{\psi}$, la \emph{moyenne} d'une observable $\hA$ est donnée par
+\begin{equation}
+    \boxed{\moy{\hA}_\psi \equiv \sum_i a_i\P(a_i) = \bra{\psi}\hA\ket{\psi}}
+\end{equation}
+et l'\emph{écart quadratique moyen} est donné par
+\begin{equation}
+    \boxed{\Delta\hA^2_\psi \equiv \moy{\hA^2}_\psi-\moy{\hA}_\psi^2 = \bra{\psi}\hA^2\ket{\psi}-\bra{\psi}\hA\ket{\psi}^2}
+\end{equation}
+où $\{a_i\}$ sont les valeurs propres de $\hA$.
+
+\paragraph{Théorème d'Ehrenfest.} Si un état évolue dans le temps, il est claire que la moyenne d'une observable sur cet état évolue elle aussi. En utilisant l'équation de Schrödinger, on peut montrer que l'équation d'évolution est la suivante:
+\begin{equation}
+    \boxed{\dv{}{t}\moy{\hA}_\psi = \frac{1}{i\hbar}\moy{[\hA,\hH]}_\psi+\left\langle\pdv{\hA}{t}\right\rangle_\psi}.\label{eq:evoltobs}
+\end{equation}
+
+\paragraph{Système conservatif II.} Si l'on applique la formule \eqref{eq:evoltobs} à l'Hamiltonien, on trouve que, pour les systèmes conservatifs, $\moy{\hH}(t)$ est une constante.
+
+\paragraph{Inégalité d'Heisenberg.} Soient $\hA$ et $\hB$ deux observables. Les écarts quadratiques moyens satisfont toujours l'inégalité
+\begin{equation}
+    \boxed{\Delta\hA_\psi\Delta\hB_\psi\geq\frac{1}{2}\abs{\frac{1}{i}\moy{[\hA,\hB]}_\psi}}
+\end{equation}
+pour tout état $\ket{\psi}$. 
+
+\paragraph{Principe de correspondence.} Le principe de correspondence stipule que le comportement des systèmes décrits par la mécanique quantique doit reproduire la mécanique classique quand les nombres quantiques mis en jeu sont très grands, ou quand la quantité d'action représentée par la constante de Planck peut être négligée devant l'action mise en œuvre dans le système.
+
+
+\section{Position et impulsion}
+
+On considère un système quantique auquel est associé l'espace de Hilbert $\H=L^2(\R)$. C'est par exemple le cas si l'on considère une particule en une dimension. On peut facilement généraliser à plus de dimensions. Rappelons que le produit scalaire sur cet espace est pris comme étant
+\begin{equation}
+    \braket{f}{g} \equiv \int_{\R}\d x~f(x)^*g(x).
+\end{equation}
+
+\paragraph{Base des positions.} On définit la base \emph{position} comme l'ensemble des distributions delta de Dirac : $\{\xi_{x_0}\}_{x_0}$ avec $\xi_{x_0}(x)=\delta(x-x_0)$. Cette base est paramétrée par un indice continu $x_0$, le centre des deltas de Dirac. On note $\ket{x_0}$ le ket qui correspond à la fonction $\delta(x-x_0)$. On peut montrer que la relation d'orthonormalisation et de fermeture sont satisfaites:
+\begin{align}
+    \braket{x_1}{x_2} &= \int_{\R} \d x~\delta{x-x_1}\delta(x-x_2) = \delta(x_1-x_2)\\
+    \int_{\R}\d x \ket{x}\bra{x} &= \mathbbm{1}.
+\end{align}
+Notons que l'on utilise ici une version ``continue'' des ces relations, et plus la version ``discrète'' dont nous avions l'habitude.
+
+On peut décomposer tout ket (i.e. toute fonction de $L^2(\R)$) sur cette base:
+\begin{equation}
+    \braket{x_0}{\psi} = \int_{\R}\d x~\delta(x-x_0)\psi(x) = \psi(x_0).
+\end{equation}
+Autrement dit, la composante de $\ket{\psi}$ le long $\ket{x_0}$ est $\psi(x_0)$, c'est-à-dire la fonction d'onde évaluée en $x_0$.
+
+\paragraph{Opérateur position.} L'opérateur \emph{position} $\hX$ est défini comme étant l'opérateur dont les kets $\ket{x}$ sont les vecteurs propres associés à la valeur propre $x$. C'est-à-dire que $\hX\ket{x}=x\ket{x}$. On peut alors voir que
+\begin{equation}
+    \boxed{\bra{x}\hX\ket{\psi}=x\psi(x)}
+\end{equation}
+donc $\hX$ est l'opérateur qui multiplie les fonctions d'onde par $x$.
+
+
+\paragraph{Base des impulsions.} On définit la base \emph{impulsions} comme l'ensemble des ondes planes: $\{v_{p_0}\}_{p_0}$ avec 
+\begin{equation}
+    v_{p_0}(x) = \frac{1}{\sqrt{2\pi\hbar}}e^{\frac{i}{\hbar}p_0x}.
+\end{equation}
+Cette base est paramétrée par un indice continu $p_0$, l'impulsion de l'onde plane. On note $\ket{p_0}$ le ket qui correspond à la fonction $v_{p_0}(x)$. On peut montrer que la relation d'orthonormalisation et de fermeture sont satisfaites:
+\begin{align}
+    \braket{p_1}{p_2} &= \frac{1}{2\pi\hbar}\int_{\R} \d x~e^{-\frac{i}{\hbar}(p_1-p_2)x} = \delta(p_1-p_2)\\
+    \int_{\R}\d p \ket{p}\bra{p} &= \mathbbm{1}.
+\end{align}
+
+On peut décomposer tout ket (i.e. toute fonction de $L^2(\R)$) sur cette base:
+\begin{equation}
+    \braket{p_0}{\psi} = \frac{1}{\sqrt{2\pi\hbar}}\int_{\R}\d x~\psi(x)e^{-\frac{i}{\hbar}p_0x} = \widetilde{\psi}(p_0).
+\end{equation}
+Autrement dit, la composante de $\ket{\psi}$ le long $\ket{p_0}$ est $\widetilde{\psi}(p_0)$, c'est-à-dire la transformée de Fourier de la fonction d'onde évaluée en $p_0$.
+
+\paragraph{Opérateur impulsion.} L'opérateur \emph{impulsion} $\hP$ est défini comme étant l'opérateur dont les kets $\ket{p}$ sont les vecteurs propres associés à la valeur propre $p$. C'est-à-dire que $\hP\ket{p}=p\ket{P}$. On peut alors voir que
+\begin{equation}
+    \boxed{\bra{p}\hP\ket{\psi}=p\widetilde{\psi}(p)}
+\end{equation}
+donc $\hP$ est l'opérateur qui multiplie la transformée de Fourier des fonctions d'ondes par $p$.
+
+\paragraph{Propriétés entre $\hX$ et $\hP$.} Nous avons vu comment les opérateurs $\hX$ et $\hP$ agissent dans leurs bases de vecteurs propres respectives. Mais comment agissent-ils dans la base de l'autre ? Tout d'abord on peut montrer que
+\begin{equation}
+    \boxed{\braket{x}{p}=\frac{1}{\sqrt{2\pi\hbar}}e^{\frac{i}{\hbar}px}}.
+\end{equation}
+Il vient ensuite que l'opérateur impulsion agit comme la dérivée sur les fonctions d'onde:
+\begin{equation}
+    \boxed{\bra{x}\hP\ket{\psi} = -i\hbar\p_x\psi(x)}
+\end{equation}
+et que l'opérateur position agit comme la dérivée sur la transformée de Fourier des fonctions d'onde:
+\begin{equation}
+    \boxed{\bra{p}\hX\ket{\psi} = i\hbar\p_p\widetilde{\psi}(p)}.
+\end{equation}
+
+On peut montrer que
+\begin{equation}
+    \boxed{[\hX,\hP] = i\hbar\mathbbm{1}}.
+\end{equation}
+L'inégalité d'Heisenberg appliquée à l'opérateur de position est l'opérteur impulsion donne donc
+\begin{equation}
+    \Delta\hX_\psi\Delta\hP_\psi\geq\frac{\hbar}{2}.
+\end{equation}
+On peut étendre cette relation de commutation à toute fonction de $\hX$ et de $\hP$:
+\begin{equation}
+    \boxed{[\hX,F(\hP)] = i\hbar F'(\hP)}
+\end{equation}
+et
+\begin{equation}
+    \boxed{[\hP,F(\hX)] = -i\hbar F'(\hX)}.
+\end{equation}
+
+\paragraph{Remarques.}
+\begin{itemize}[label=\tb]
+    \item Nous avons fait le lien entre les fonctions d'ondes, les états et les kets: la fonction d'onde est l'ensemble des coefficients d'un ket dans la base des positions tandis que la transformée de Fourier de la fonction d'onde est l'ensemble des coefficients d'un ket dans la base des impulsions.
+    \item Notons que $\xi{x_0}\notin L^2(\R)$ et $v_{p_0}\notin L^2(\R)$, ce qui veut dire que les kets $\ket{x}$ et $\ket{p}$ ne peuvent pas correspondre à des états physiques\footnote{Et en effet, cela violerait l'inégalité d'Heisenberg.} Cependant nous utilisons ici le fait qu'on peut créer des fonctions appartenant à $L^2(\R)$, et donc des états physiques, à partir de ces fonctions. Ce n'est donc pas un problème.
+\end{itemize}
+
+
+
+
+
+
+\end{document}

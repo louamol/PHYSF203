@@ -1,0 +1,122 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage{import}
+
+\import{Packages/}{custom_packages.tex}
+\import{Packages/}{custom_macros.tex}
+
+\title{L'oscillateur harmonique : Rappel}
+\author{Louan Mol}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{L'oscillateur harmonique : Rappel}}
+\end{center}
+
+\section{Oscillateur harmonique quantique}
+
+\paragraph*{Hamiltonien.} L'Hamiltonien d'une particule de masse $m$ dans un potentiel harmonique de pulsation $\omega$ est
+\begin{equation*}
+    \hH = \frac{\hP}{2m}+\frac{1}{2}m\omega^2\hX^2.
+\end{equation*}
+Ce dernier peut être généralisé à plusieurs dimensions. Pour rappel, les opérateurs de position et d'impulsion satisfont $[\hX,\hP]=i\hbar\mathbbm{1}$.
+
+\paragraph*{Opérateur d'échelle.} On définit l'\emph{opérateur d'annihilation}
+\begin{eqnarray}
+    \ha = \sqrt{\frac{m\omega}{2\hbar}}\hX+i\frac{\hP}{\sqrt{2m\hbar\omega}}.
+\end{eqnarray}
+On peut montrer que
+\begin{equation*}
+    \boxed{[\ha,\ha^\dagger]=\mathbbm{1}}.
+\end{equation*}
+L'hermicien conjugué $\ha^\dagger$ est appellé \emph{opérateur de création}. L'Hamiltonien peut être réécrit comme
+\begin{align}
+    \hH &= \left(\ha\ha^\dagger+\frac{1}{2}\right)\\
+    &= \left(\hN+\frac{1}{2}\right)
+\end{align}
+avec $\hN\equiv\ha\ha^\dagger$. Étudier le spectre de l'Hamiltonien revient donc à étudier le spectre de $\hN$. Nous trouvons les résultats suivants:
+\begin{enumerate}[label=\roman*)]
+    \item Le spectre de $\hN$ est $\N$ et non-dégénéré. Notons $\ket{n}$ le vecteur propre associé à la valeur propre $n\in\N$.
+    \item L'opérateur de création permet de monter dans les valeurs propres:
+    \begin{equation*}
+        \boxed{\ha^\dagger\ket{n}=\sqrt{n+1}\ket{n+1}}.
+    \end{equation*}
+    \item L'opérateur de création permet de descendre dans les valeurs propres:
+    \begin{equation*}
+        \boxed{\ha\ket{n}=\sqrt{n}\ket{n-1}}
+    \end{equation*}
+    et le ket $\ket{0}$ est annihilé par $\ha$: $\ha\ket{0}=0$.
+\end{enumerate}
+
+Le ket $\ket{0}$ est le vecteur propre qui a la plus petite valeur propre. En partant de celui-ci et en agissant avec l'opérateur de création on peut générer tous les vecteurs propres:
+\begin{equation*}
+    \boxed{\ket{n} = \frac{(\ha^\dagger)^n}{\sqrt{n!}}\ket{0}}.
+\end{equation*}
+
+Ces états sont appellés \emph{états de Fock}. Par construction, ils sont aussi états propres de l'Hamiltonien. L'état $\ket{n}$ a une énergie
+\begin{equation*}
+    E_n = \hbar\omega\left(n+\frac{1}{2}\right).
+\end{equation*}
+On dit que l'état $\ket{n}$ décrit $n$ ``quantas'' d'énergie, ou $n$ excitations. Remarquons que l'état du vide possède une énergie non-nulle: $E_0=\hbar\omega/2$.
+
+La fonction d'onde associée à l'état $\ket{n}$ est
+\begin{equation*}
+    \psi_n(x) = \braket{x}{n} = \frac{1}{\sqrt{2^nn!}}\left(x-\dv{x}\right)^n\psi_0(x)
+\end{equation*}
+ce qui peut être réécrit comme
+\begin{equation*}
+    \psi_n(x) = \frac{1}{\sqrt[4]{\pi}}\frac{e^{-\frac{x^2}{2}}}{\sqrt{2^nn!}}H_n(x)
+\end{equation*}
+où $H_n(x)$ est le $n$-ème polynôme d'Hermite.
+
+\paragraph*{Polynômes d'Hermite.} On définit le $n$-ème \emph{polynôme d'Hermite} comme
+\begin{equation*}
+    H_n(x)=(-1)^ne^{x^2}\dv[n]{x}e^{-x^2}.
+\end{equation*}
+Grâce à la relation de récurrence
+\begin{equation*}
+    H_{n+1}(x) = 2xH_n(x)-2nH_{n-1}(x),
+\end{equation*} 
+il suffit de connaitre explicitement les deux premiers polynômes pour générer les polynômes suivants. Voici les quelques premiers:
+\begin{align*}
+    H_0(x) &= 1 \\
+    H_1(x) &= 2x \\
+    H_2(x) &= x^2-1 \\
+    H_3(x) &= x^3-3x \\
+    H_4(x) &= x^4-6x^2+3,\\
+    &\vdots
+\end{align*}
+Ces polynômes forment une base orthogonale de l'espace de Hilbert $L^2(\R)$. Chaque polynôme est soit paire soit impair et sa parité est la même que celle de $n$.
+
+\section{États cohérents}
+
+\paragraph*{Définition.} Un \emph{état cohérent} $\ket{\alpha}$ est un état propre de l'opérateur d'annihilation:
+\begin{equation*}
+    \ha\ket{\alpha}=\alpha\ket{\alpha}.
+\end{equation*}
+Notons que ceci est équivalent à être un vecteur propre de l'opérateur de création avec la valeur propre $\alpha^*$: $\ha^\dagger\ket{\alpha}=\alpha^*\ket{\alpha}$. $\ket{\alpha}$ est carctérisé par sa valeur propre $\alpha\in\C$. On par donc de l'\emph{amplitude} $\abs{\alpha}$ et de la \emph{phase} $\arg{\alpha}$ d'un état cohérent.
+
+Sur la base de Fock, $\ket{\alpha}$ s'écrit comme
+\begin{equation*}
+    \ket{\alpha} = e^{-\frac{\abs{\alpha}^2}{2}}\sum_{n\in\N}\frac{\alpha^n}{\sqrt{n!}}\ket{n}.
+\end{equation*}
+
+\paragraph*{Propriétés physiques.} Les états cohérents ont des propriétés physiques particulières:
+\begin{enumerate}[label=\roman*)]
+    \item Ils sont inchangés sous l'annihilation ou l'excitation de la particule.
+    \item Ils saturent la relation d'incertitude d'Heisenberg.
+    \item Leur évolution temporelle est concentrée le long de la trajectoire classique et il n'y a pas de dispersion, contrairement aux états propres d'énergie.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

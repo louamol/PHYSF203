@@ -1,0 +1,217 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage{import}
+
+\import{Packages/}{custom_packages.tex}
+\import{Packages/}{custom_macros.tex}
+
+\title{Formalisme de Dirac: Rappel}
+\author{Louan Mol}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{Formalisme de Dirac : Rappel}}
+\end{center}
+
+\vspace{1cm}
+
+\qquad La notation bra-ket est une notation que l'on utilise pour travailler avec les espaces de Hilbert. Elle facilite l'écriture des équations de la mécanique quantique, tout en soulignant l'aspect vectoriel des objets en jeu. Nous commençons par développer ce formalisme de manière abstraite et complétement générale, sans faire de lien avec la Physique.
+
+\section{Espaces de Hilbert}
+
+\paragraph{Espace de Hilbert.} Soit $V$ un espace vectoriel sur $\C$. Un \emph{produit scalaire hermitien} sur $V$ est une application $(\cdot,\cdot):V\times V\to\C$ qui est
+\begin{itemize}[label=\tb]
+    \item linéaire à droite : $(w,au+bv) = a(w,u)+b(w,v)$,
+    \item anti-linéaire à gauche : $(au+bv,w) = a^*(u,w)+b^*(v,w)$,
+    \item à symétrie hermitienne : $(u,v)^*=(v,u)$,
+    \item définie positive : $(u,u)>0$ si $u\neq0$
+\end{itemize}
+pour tout $u,v,w\in V$ et $a,b\in\C$. Un \emph{espace de Hilbert} est\footnote{Pour être exacte, il est aussi recquis que l'espace soit complet, technicité dont nous ne nous occuperons pas ici.} un espace vectoriel complexe muni d'un produit scalaire hermitien. 
+
+Soit $\H$ un espace de Hilbert. Notons que $\H$ est en particulier un espace vectoriel donc il a un espace dual $\H^*$.
+
+\paragraph{Ket.} Tout élément de $\H$ est appellé \emph{ket} et noté $\kp{}$. Le symbol central peut changer pour désigner différents éléments.
+
+\paragraph{Produit scalaire.} Le produit scalaire entre un ket $\kp{1}$ et un ket $\kp{2}$ est noté
+\begin{equation}
+    (\kp{1},\kp{2}) \equiv \braket{\psi_1}{\psi_2},
+\end{equation}
+ce qui est appellé un \emph{braket}. Un produit scalaire défini positif définit une \emph{norme}:
+\begin{equation}
+    \norm{\kp{}} \equiv \sqrt{\braket{\psi}}.
+\end{equation}
+
+\paragraph{Bra.} Tout élément de $\H^*$ est appellé \emph{bra} et noté $\bra{\psi}$. Le symbol central peut changer pour désigner différents éléments. $\ket{\psi}$ est donc une application linéaire de $\H\to\C$ (forme linéaire).  
+
+À tout ket est associé un bra: si $\kp{}$ est le ket intial, on peut définir le bra $\bra{\psi}$ associé à $\kp{}$ (noté avec le même symbole) comme
+\begin{equation}
+    \bra{\psi}(\ket{\chi})=\braket{\psi}{\chi}.
+\end{equation}
+Inversément, nous supposerons qu'à tout bra correspond un ket\footnote{La question de la correspondence entre kets et bras est en fait non-triviale, voir la discussion dans le Cohen-Tannoudji.}.
+
+Ceci implique que l'on peut interpréter l'expression $\braket{\psi}{\phi}$ de deux manières: soit le produit scalaire entre $\kp{}$ et $\kph$, soit comme l'image de $\kph$ sous le bra $\bra{\psi}$. Ces deux points de vue sont équivalents.
+
+\paragraph{Base orthonormée I.} Soit $B=\{\ket{u_i}\}_i$ une base othornormée de $\H$ et deux kets $\kp{}$ et $\kph$ qui se décomposent sur cette base comme
+\begin{equation}
+    \kp{} = \sum_i a_i\ket{u_i},\qquad \kph = \sum_i b_i\ket{u_i}.
+\end{equation}
+\newpage
+Nous avons
+\begin{figure}[H]
+    \centering
+    \begin{tabular}{ll}
+         & \\
+        \emph{relation d'orthonormalisation} : &  $\boxed{\braket{u_i}{u_j}=\delta_{ij}}$ \\
+        & \\
+        \emph{relation de fermeture} : & $\boxed{\sum_i\ket{u_i}\bra{u_i}=\mathbbm{1}}$ \\
+        & \\
+        expression des composantes : & $a_i=\braket{u_i}{\psi}$ \\
+        & \\
+        produit scalaire : & $\boxed{\braket{\psi}{\phi}=\sum_i a^*_ib_i}$ \\
+        & \\
+        carré de la norme : & $\braket{\psi}=\sum_i\abs{a_i}^2$.
+    \end{tabular}
+\end{figure}
+
+
+
+\section{Opérateurs}
+
+On considère deux bases quelconques $B=\{\ket{e_i}\}_i$ et $B'=\{\ket{e'_i}\}_i$ de $\H$. Nous sommons sur les indices répétés.
+
+\paragraph{Matrice représentant un opérateur.} Un \emph{opérateur linéaire} sur $\H$ est une application linéaire $\hA:\H\to\H$. Si l'on fait le choix d'une base $B$, un vecteur de $\H$ peut être représenté par ses composantes dans cette base et un opérateur peut être représenté par une matrice. Notons $A$ cette matrice dans la base $B$ et $A'$ dans la base $B'$. Elles sont définies comme
+\begin{align}
+    \hA\ket{e_j} &= A_{ij}\ket{e_i},\\
+    \hA\ket{e_j} &= A'_{ij}\ket{e'_i}.
+\end{align}
+Si
+\begin{equation}
+    \kp{}=c_i\ket{e_i}=c'_i\ket{e'_i}
+\end{equation}
+alors
+\begin{align}
+    \hA\kp{} &= A_{ji}c_i \ket{e_j},\label{eq:matreprA}\\
+    \hA\kp{} &= A'_{ji}c'_i \ket{e'_j}.
+\end{align}
+Autrement dit, l'action de l'opérateur sur le vecteur est simplement l'action de la matrice représentant cet opérateur sur les composantes du vecteur.
+
+\paragraph{Changement de base.} On définit les matrices de changement de base suivantes:
+\begin{align}
+    \ket{e_i} &= (S_{B\to B'})_{ji}\ket{e'_j},\\
+    \ket{e'_i} &= (S_{B'\to B})_{ji}\ket{e_j}.
+\end{align}
+Ces définitions impliquent que $S_{B\to B}=(S_{B'\to B})^{-1}$. Les composantes des vecteurs dans les deux bases sont alors reliées par
+\begin{equation}
+    \boxed{c'_i = (S_{B\to B'})_{ik}c_k}.
+\end{equation}
+c'est-à-dire simplement par l'action de la matrice de changement de base sur les composantes. Comme les matrices qui représentent $\hA$ dépendent aussi des bases, $A$ et $A'$ sont aussi reliées par un changement de base:
+\begin{equation}
+    \boxed{A=S_{B\to B'}A'S_{B'\to B}}.
+\end{equation}
+
+\paragraph{Base orthonormée  II.} Si $B$ est une base orthonormée, il y a des relations supplémentaires très utiles pour la matrice $A$. La relation \eqref{eq:matreprA} couplée à la relation d'othonormalisation donne directement
+\begin{equation}
+    \boxed{A_{ij}=\bra{e_i}\hA\ket{e_j}}.
+\end{equation}
+Et cette relation couplée à la relation de fermeture donne
+\begin{equation}
+    \boxed{\hA=\sum_{i,j}A_{ij}\ket{e_i}\bra{e_j}}.
+\end{equation}
+
+\paragraph{Opérateur adjoint.} Pour tout opérateur $\hA$, il existe un autre opérateur noté $\hA^\dagger$ tel que
+\begin{equation}
+    (\kp{},\hA\kph)=(\hA^\dagger\kp{},\kph).
+\end{equation}
+C'est l'\emph{adjoint} de $\hA$. Au niveau des matrices, ont peut montrer que
+\begin{equation}
+    \boxed{A^\dagger = (A^T)^*}.
+\end{equation}
+
+\paragraph{Conjugaison hermitienne.} Comme mentionné précédemment, on peut définir un bra à partir d'un ket et inversément. L'étape de passer de l'un à l'autre s'appelle la \emph{conjugaison hermitienne}. Si l'on étend cette opération pour les opérateurs et la multiplication par des nombres complexes, on peut montrer qu'il faut appliquer les règles suivantes:
+\begin{enumerate}
+    \item on remplace les kets par des bras et les bras par des kets,
+    \item on remplace les nombres par leurs complexe conjugués,
+    \item on remplace les opérateurs par leurs adjoints,
+    \item on inverse l'ordre des facteurs (la position des nombres n'importe pas).
+\end{enumerate}
+Voici quelques exemples:
+\begin{align}
+    a\kp{} &\mapsto a^*\bra{\psi}\\
+    \hA\kp{} &\mapsto \bra{\psi}\hA^\dagger\\
+    \braket{\psi}{\phi} &\mapsto \braket{\phi}{\psi} = \braket{\psi}{\phi}^*\\
+    \hA\hB & \mapsto \hB^\dagger\hA^\dagger.
+\end{align}
+
+\paragraph{Opérateur hermitien.} Un opérateur \emph{hermitien} (ou \emph{auto-adjoint}) est un opérateur qui est son propre adjoint: $\hA^\dagger=\hA$. Ceci implique que
+\begin{equation}
+    \boxed{\bra{\psi}\hA\ket{\phi}^* = \bra{\phi}\hA\ket{\psi}}.
+\end{equation}
+Ces opérateurs ont une structure propre particulière:
+\begin{itemize}[label=\tb]
+    \item Les valeurs propres sont réelles.
+    \item Les vecteurs propres correspondant à des valeurs propres différentes sont orthogonaux.
+\end{itemize}
+
+\paragraph{Opérateur unitaire.} Un opérateur \emph{unitaire} est un opérateur dont l'adjoint est l'inverse: $\hU^\dagger=\hU^{-1}$. Ceci implique que cet opérateur laisse le produit scalaire invariant:
+\begin{equation}
+    \boxed{(\hU\kp{},\hU\kph)=(\kp{},\kph)}.
+\end{equation}
+Ces opérateurs ont également une structure propre particulière:
+\begin{itemize}[label=\tb]
+    \item Les valeurs propres sont de module $1$, i.e. sont des phases.
+    \item Les vecteurs propres correspondant à des valeurs propres différentes sont orthogonaux.
+\end{itemize}
+
+\paragraph{Projecteur.} Un \emph{projecteur} est un opérateur satisfaisant $\hP^2=\hP$. On dit de plus qu'il est \emph{orthogonal} si $\text{Ker}(\hP)\perp\Im(\hP)$, c'est-à-dire si la direction le long de laquelle il projette est perpendiculaire à l'espace sur lequel il projette. 
+
+Une conséquence de la définition est que tout projecteur ne possède que deux valeurs propres : $0$ et $1$. Le sous-espace propre associé à la valeur propre $0$ est son noyaux et le sous-espace propre associé à la valeur propre $1$ est son image. Il suit que si un projecteur est hermitien, alors il est nécessairement orthogonal. Cela fournit un critère utile pour montrer l'orthogonalité d'un projecteur.
+
+\paragraph{Diagonalisation.} 
+\begin{itemize}[label=\tb]
+    \item Tout opérateur possède autant de vecteurs propres (linéairement indépendants) que de dimensions de l'espace sur lequel il agit. Ces vecteurs propres forment donc une base de l'espace. Faire un changement de base vers cette dernière permet de simplfier l'expression de la matrice qui représente l'opérateur.
+    \item Les opérateurs hermitiens sont diagonalisables.
+    \item Si l'opérateur n'est pas dagonalisable, nous obtenons la \emph{forme de Jacobi} qui est diagonale par bloc.
+    \item Soient $\hA$ et $\hB$ des opérateurs qui commutent entre-eux, alors il existe une base de vecteur propres communs à $\hA$ et à $\hB$. Autrement dit, il peuvent êtres diagonalisés simultanément.
+\end{itemize}
+
+
+\section{Commutateur et autres relations}
+
+\paragraph{Commutateur.} Le \emph{commutateur} de deux opérateurs $\hA$ et $\hB$ est $[\hA,\hB]\equiv \hA\hB-\hB\hA$, de sorte que si $[\hA,\hB]=0$ alors les opérateurs commutent: $\hA\hB=\hB\hA$.
+
+\paragraph{Anticommutateur.} L'\emph{anticommutateur} de deux opérateurs $\hA$ et $\hB$ est $\{\hA,\hB\}\equiv \hA\hB+\hB\hA$, de sorte que si $\{\hA,\hB\}=0$ alors les opérateurs anticommutent: $\hA\hB=-\hB\hA$.
+
+\paragraph{Propriétés matricielles utiles.}
+\begin{itemize}[label=\tb]
+    \item si $A$ est une matrice carrée, alors
+    \begin{equation}
+        \boxed{\det(e^A)=e^{\tr(A)}}
+    \end{equation}
+    \item si $A$ et $B$ sont deux matrices carrées qui commutent avec leur commutateur, c'est-à-dire si $[A,[A,B]]=[B,[A,B]]=0$, alors
+    \begin{equation}
+        \boxed{e^Ae^B = e^{A+B+\frac{1}{2}[A,B]}}.
+    \end{equation}
+    C'est la \emph{formule de Baker-Campbell-Hausdorff}.
+\end{itemize}
+
+\paragraph{Remarques finales.} 
+\begin{itemize}[label=\tb]
+    \item Pour mieux comprendre ce formalisme, il est extrêment intéressant de redémontrer soi-même les expressions encadrées ainsi que les propriétés des opérateurs hermitiens et unitaires.
+    \item En mécanique quantique, nous utilisons souvent des espaces de Hilbert de dimension infinie. Les bases de tels espaces sont également infinies. Tout ce qui a été présenté est valable autant dans le cas fini que dans le cas infini. Remarquons que nous n'avons d'ailleurs précisé nulle-part si les bases étaient finies ou pas. En pratique, une base finie a la forme
+    \begin{equation}
+        \{\ket{e_i}\}_i, \qquad i=1,\dots,n
+    \end{equation}
+    tandis qu'une base infinie a la forme
+    \begin{equation}
+        \{\ket{e_i}\}_i, \qquad i\in\mathbb{N}.\label{eq:baseinfden}
+    \end{equation}
+    Plus précisément, les bases de la forme \eqref{eq:baseinfden} sont des bases infinies \emph{dénombrables}. Il aussi possible de considérer des bases infinies \emph{non-dénombrables}, de la forme
+    \begin{equation}
+        \{\ket{e_\alpha}\}_\alpha, \qquad \alpha\in\mathbb{R},
+    \end{equation}
+    auquel cas le formalisme doit être légèrement modifié. Nous ne traitons pas ce cas pour l'instant.
+\end{itemize}
+
+
+\end{document}

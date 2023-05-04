@@ -1,0 +1,97 @@
+%---PACKAGES----------------------------------------
+\documentclass[a4paper,10pt]{book}
+
+\usepackage{import}
+\import{Packages/}{custom_packages.tex}
+\import{Packages/}{custom_macros.tex}
+
+\setcounter{tocdepth}{2}
+
+% DOCUMENT -----------------------------
+
+\begin{document}
+
+\include{titlepageULB.tex}
+
+\nocite{*}
+
+\thispagestyle{plain}
+
+Ce syllabus est destiné aux étudiants du cours PHYS-F203 donné en deuxième année de Bachelier en Sciences Physiques. La première partie du syllabus contient les problèmes qui seront résolus durant les séances d'exercices. Les énoncés des ces derniers ont été rédigés par Adrien Fiorucci. La deuxième partie sert de recueil d'examen. À la fin de chaque séance d'exercices, un renvoi est fait vers els questions d'examens portant sur la matière de la séance d'exercices.
+
+Les référeces du cours sont: 
+\begin{itemize}[label=\textbullet]
+    \item Cohen-Tannoudji, Claude. Mécanique quantique . Tome I-II. [2e] Ed. rev., Paris: Hermann, 1980.
+    \item Peleg, Yoav, Reuven Pnini, and Elyahu Zaarur. Schaum's Outline of Theory and Problems of Quantum Mechanics. New York: McGraw-Hill, 1998.
+\end{itemize}
+
+\vspace{17cm}
+
+
+
+\pagebreak
+
+\thispagestyle{plain}
+
+\tableofcontents
+
+\part{Exercices}
+
+\makeatletter
+\renewcommand{\@chapapp}{Séance}
+\makeatother
+
+\include{Body/seance1.tex}
+
+\include{Body/seance2.tex}
+
+\include{Body/seance3.tex}
+
+\include{Body/seance4.tex}
+
+\include{Body/seance5.tex}
+
+\include{Body/seance6.tex}
+
+\include{Body/seance7.tex}
+
+\part{Examens}
+
+\makeatletter
+\renewcommand{\@chapapp}{Examen}
+\makeatother
+
+%\thispagestyle{plain}
+
+%Classification des question d'examens par sujet:
+
+%\begin{enumerate}
+%    \item Principe d'incertitude d'Heisenberg
+%    \item L'équation de Schrödinger: Juin 2019 Q4, Août 2019 Q4, Juin 2021 Q3, Août 2022 Q3
+%    \item Formalisme de Dirac, et axiomes de la Mécanique Quantique: Juin 2019 Q1, Août 2019 Q1, Juin 2022 Q3
+%    \item Applications des postulats de la Mécanique Quantique: 
+%    \begin{itemize}[label=\textbullet]
+%        \item Interféromètre de Mach-Zehnder: Août 2021 Q3
+%        \item Oscillations de neutrinos: Août 2022 Q2
+%        \item La molécule d'ammoniac $\text{NH}_3$
+%        \item Autres exemples de Résonance Quantique: Juin 2019 Q3, Juin 2021 Q2
+%        \item Quantification du moment angulaire
+%        \item Spin 1/2: Août 2019 Q3, Juin 2022 Q1
+%    \end{itemize}
+%    \item Position et Impulsion en Mécanique Quantique: Août 2021 Q2, Juin 2022 Q2
+%    \item Oscillateur Harmonique Quantique: Juin 2019 Q2, Août 2019 Q2, Juin 2021 Q1, Août 2021 Q1, Août 2022 Q1
+%\end{enumerate}
+
+\include{Body/examenjuin2019.tex}
+
+\include{Body/examenseptembre2019.tex}
+
+\include{Body/examenjuin2021.tex}
+
+\include{Body/examenseptembre2021.tex}
+
+\include{Body/examenjuin2022.tex}
+
+\include{Body/examenseptembre2022.tex}
+
+\end{document}
