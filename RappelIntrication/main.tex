@@ -54,7 +54,7 @@ En notation braket, on note ${_A}\bra{\vp}\otimes{_B}\bra{\psi}$ le bra associé
     ({_A}\bra{\vp_1}\otimes{_B}\bra{\psi_1})(\ket{\vp_2}_A\otimes\ket{\psi_2}_B) = \braket{\vp_1}{\vp_2}\braket{\psi_1}{\psi_2}.
 \end{equation}
 
-\paragraph*{Bases orthonormées.} En utilisant cette définition du produit scalaire, on peut facilement montrer que si les bases $\B_A$ et $\B_B$ (introduites plus haut) sont orthonormées, alors la base $\B$ est également orthonormée. En effet,
+\paragraph*{Bases orthonormées.} En utilisant cette définition du produit scalaire, on peut facilement montrer que si les bases $\B_A$ et $\B_B$ (introduites ci-dessus) sont orthonormées, alors la base $\B$ est également orthonormée. En effet,
 \begin{equation}
     ({_A}\bra{u_i}\otimes{_B}\bra{v_l})(\ket{u_j}_A\otimes\ket{v_m}_B) = \braket{u_i}{u_j}\braket{v_l}{v_m} = \delta_{ij}\delta_{lm}.
 \end{equation}
@@ -82,7 +82,7 @@ Il très utile et instrictif d'étudier la structure propre d'opérateurs de la 
     \ket{\vp}_A\otimes\ket{\psi}_B \equiv \ket{\vp}_A\ket{\psi}_B \equiv \ket{\vp}\ket{\psi} \equiv \ket{\vp;\psi}.
 \end{equation}
 
-\paragraph*{Produit tensoriel en composantes.} Reprenons les base $\B_A$ et $\B_B$ de $\H_A$ et $\H_B$ qui ont été introduites plus haut. Si
+\paragraph*{Produit tensoriel en composantes.} Reprenons les base $\B_A$ et $\B_B$ de $\H_A$ et $\H_B$ qui ont été introduites ci-dessus. Si
 \begin{align}
     \ket{\vp}_A &= \sum_i a_i\ket{u_i}_A,\\
     \ket{\psi}_B &= \sum_l b_i\ket{v_l}_B,
@@ -161,7 +161,7 @@ si $\{\ket{u_i}_A\}$,$\{\ket{v_l}_B\}$ et $\{\ket{w_p}_C\}$ sont des bases de $\
     \item le système $A$ est décrit par l'espace de Hilbert $\H_A$ et l'Hamiltonien $\hH_A$,
     \item le système $B$ est décrit par l'espace de Hilbert $\H_B$ et l'Hamiltonien $\hH_B$,
 \end{itemize}
-comment faire pour décrire le système composé de $A$ et $B$ ? Plus encore, comment introduire une potentielle intéraction entre les deux systèmes ? 
+comment faire pour décrire le système composé de $A$ et $B$ ? Plus encore, comment introduire une potentielle interaction entre les deux systèmes ? 
 
 La réponse à ces questions peut être vue comme un nouveau postulat: le nouveau système est donné par l'espace de Hilbert
 \begin{equation}
@@ -171,9 +171,9 @@ et par l'Hamiltonien
 \begin{equation}
     \hH_{AB} = \hH_A\otimes\mathbbm{1}_B+\mathbbm{1}_A\otimes\hH_B+\hH^{\text{int}}_{AB}
 \end{equation}
-où le dernier terme tient compte des potentielles intéractions entre les deux systèmes. Bien que très important, nous ne traiterons pas ce cas et considérerons que $\hH^{\text{int}}_{AB}=\hat{0}$. \\
+où le dernier terme tient compte des potentielles interactions entre les deux systèmes. Bien que très important, nous ne traiterons pas ce cas et considérerons que $\hH^{\text{int}}_{AB}=\hat{0}$.\\
 
-Malgré le fait qu'il n'y ait pas de terme d'intéraction dans l'Hamiltonien, nous verrons que les systèmes $A$ et $B$ sont loin d'être indépendants, et cela du à un phénomène appellé \emph{intrication}. Cette propriété très spéciale des systèmes composites quantiques contribue grandement aux différences fondamentales qu'il y a entre la physique quantique et la physique classique (voir la citation de Schrödinger dans le cours). 
+Malgré le fait qu'il n'y ait pas de terme d'interaction dans l'Hamiltonien, nous verrons que les systèmes $A$ et $B$ sont loin d'être indépendants, et cela du à un phénomène appellé \emph{intrication}. Cette propriété très spéciale des systèmes composites quantiques contribue grandement aux différences fondamentales qu'il y a entre la physique quantique et la physique classique (voir la citation de Schrödinger dans le cours). 
 
 L'intrication est source de beaucoup de phénomènes fascinants comme la téléportation quantique, les algorithmes quantiques, etc (voir le cours sur l'\emph{information quantique} et l'\emph{informatique quantique} donné par Stefano Pironio en Master).
 
@@ -211,6 +211,11 @@ La décomposition de Schmidt est très utilile pour déterminer si un état est 
 En quelque sorte, la décomposition de Schmidt d'un état est la forme ``la plus proche'' qu'il peut avoir d'un état produit. 
 
 Il y a une méthode systématique pour calculer la décomposition de Schmidt d'un état mais nous ne la détaillerons pas ici. Nous nous limiterons aux états pour lesquels la décomposition de Schmidt est accessible sans trop de calculs.
+
+\paragraph*{Dimensions spatiales en MQ.} Pour finir, mentionnons que le produit tensoriel n'est pas seulement utile pour décrire des systèmes avec plusieurs objets mais aussi peut décrire un système avec plusieurs dimensions spatiales. En fait, il est plus exact de dire qu'en mécanique quantique ajouter des dimensions spatiales est équivalent à ajouter des copies de ce système sans terme d'interaction. Par exemple, l'espace de Hilbert de l'oscillateur harmonique à trois dimensions est simplement formé par trois copies de l'espace Hilbert de l'oscillateur harmonique à une dimension:
+\begin{eqnarray}
+    \H_{\text{OH,3d}}=\H_{\text{OH},x}\otimes\H_{\text{OH},y}\otimes\H_{\text{OH},z}.
+\end{eqnarray}
 
 
 
