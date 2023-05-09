@@ -1,6 +1,6 @@
-PWD /home/louan/Documents/LaTeX/IntroMQ/Rappels/RappelTP7
+PWD /home/louan/Documents/LaTeX/PHYSF203/RappelIntrication
 INPUT /home/louan/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt
-INPUT /home/louan/Documents/LaTeX/IntroMQ/Rappels/RappelTP7/main.tex
+INPUT /home/louan/Documents/LaTeX/PHYSF203/RappelIntrication/main.tex
 OUTPUT main.log
 INPUT /home/louan/.miktex/texmfs/install/tex/latex/base/article.cls
 INPUT /home/louan/.miktex/texmfs/install/tex/latex/base/article.cls

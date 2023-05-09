@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2022.7.24)  2 MAY 2023 22:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2022.7.24)  9 MAY 2023 10:22
 entering extended mode
-**/home/louan/Documents/LaTeX/IntroMQ/Rappels/RappelTP7/main.tex
-(/home/louan/Documents/LaTeX/IntroMQ/Rappels/RappelTP7/main.tex
+**/home/louan/Documents/LaTeX/PHYSF203/RappelIntrication/main.tex
+(/home/louan/Documents/LaTeX/PHYSF203/RappelIntrication/main.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-07-04> (/home/louan/.miktex/texmfs/install/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -504,14 +504,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 ] (main.aux) ) 
 Here is how much of TeX's memory you used:
  17383 strings out of 478362
- 333992 string characters out of 2842112
+ 334000 string characters out of 2842112
  614782 words of memory out of 3000000
  35492 multiletter control sequences out of 15000+600000
  481944 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,11n,99p,607b,426s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 90i,11n,99p,608b,426s stack positions out of 10000i,1000n,20000p,200000b,80000s
 {/home/louan/.miktex/texmfs/install/fonts/enc/dvips/base/8r.enc}</home/louan/.miktex/texmfs/install/fonts/type1/urw/times/utmb8a.pfb></home/louan/.miktex/texmfs/install/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (1 page, 22519 bytes).
+Output written on main.pdf (1 page, 22369 bytes).
 PDF statistics:
  20 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
