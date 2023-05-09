@@ -11,10 +11,206 @@
 \begin{document}
 
 \begin{center}
-    {\huge \textbf{Le spin : Rappel}}
+    {\huge \textbf{Produit tensoriel et intrication : Rappel}}
 \end{center}
 
 \section{Produit tensoriel}
+
+Nous commençons par introduire le produit tensoriel de manière abstraite. Le lien avec la Physique sera fait dans la section suivante.
+
+\paragraph*{Produit tensoriel de vecteurs.} Soient $\H_A$ et $\H_B$ deux espaces de Hilbert de dimensions complexes $n_A$ et $n_B$ respectivement. Soient $\ket{\vp}_A\in\H_A$ et $\ket{\vp}_B\in\H_B$. Le \emph{produit tensoriel} de $\ket{\vp}_A$ et $\ket{\vp}_B$ est noté $\ket{\vp}_A\otimes\ket{\vp}_B$ et satisfait les propriétés suivantes:
+\begin{enumerate}[label=\roman*)]
+    \item $(\ket{\vp_1}_A+\ket{\vp_2}_A)\otimes\ket{\vp}_B = \ket{\vp_1}_A\otimes\ket{\vp}_B+\ket{\vp_2}_A\otimes\ket{\vp}_B$,
+    \item $\ket{\vp}_A\otimes(\ket{\vp_1}_B+\ket{\vp_2}_B) = \ket{\vp}_A\otimes\ket{\vp_1}_B+\ket{\vp}_A\otimes\ket{\vp_2}_B$,
+    \item $(\lambda\ket{\vp}_A)\otimes\ket{\vp}_B = \ket{\vp}_A\otimes(\lambda\ket{\vp}_B) = \lambda(\ket{\vp}_A\otimes\ket{\vp}_B)$,
+\end{enumerate}
+pour tout $\ket{\vp_1}_A,\ket{\vp_2}_A\in\H_A$, $\ket{\vp_1}_B,\ket{\vp_2}_B\in\H_B$ et $\lambda\in\C$. Autrement dit, le produit tensoriel est bilinéaire. 
+
+Nous indiquons l'espace d'appartenance d'un ket en indice pour attirer l'attention sur leurs natures différentes.
+
+\paragraph*{Produit tensoriel d'espaces.} Si $\B_A=\{\ket{u_i}_A\}_{i=1,\dots,n_A}$ est une base de $\H_A$ et $\B_B=\{\ket{v_l}_B\}_{l=1,\dots,n_B}$ est une base de $\H_B$, alors on définit le produit tensoriel de $\H_A$ et $\H_B$ comme le nouvel espace de Hilbert\footnote{Nous définissons le produit tensoriel directement pour des espaces de Hilbert car nous prévoyons de l'utiliser pour la mécanique quantique, mais seule la structure d'espace vectoriel est nécéssaire.}
+\begin{equation}
+    \H_A\otimes\H_B = \left\{ \sum_{i,l} c_{il}\ket{u_i}_A\otimes\ket{v_l}_B \Big|~ c_{il}\in\C \right\}.
+\end{equation}
+Par définition, les vecteurs $\ket{u_i}_A\otimes\ket{v_i}_B$ sont linéairement indépendants et forment un base de $\H_A\otimes\H_B$:
+\begin{equation}
+    \B = \{\ket{u_i}_A\otimes\ket{v_i}_B\}.
+\end{equation}
+Nous pouvons on conclure que
+\begin{equation}
+    \boxed{\dim_\C(\H_A\otimes\H_B)=\dim_\C\H_A\cdot\dim_\C\H_B}.
+\end{equation}
+L'état le pus général de $\H_A\otimes\H_B$ est de la forme
+\begin{equation}
+    \ket{\psi}=\sum_{i,l} c_{il}\ket{u_i}_A\otimes\ket{v_l}_B.
+\end{equation}
+
+\paragraph*{Produit scalaire.} Nous avons mentionné que $\H_A\otimes\H_B$ est un espace de Hilbert mais n'avons pas précisé pour quel produit scalaire. Si $(\cdot,\cdot)_{\H_A}$ et $(\cdot,\cdot)_{\H_B}$ sont les produits scalaires sur $\H_A$ et $\H_B$ respectivement, alors on définit $(\cdot,\cdot)_{\H_A\otimes\H_B}$ par
+\begin{equation}
+    (\ket{\vp_1}_A\otimes\ket{\psi_1}_B,\ket{\vp_2}_A\otimes\ket{\psi_2}_B)_{\H_A\otimes\H_B} \equiv (\ket{\vp_1}_A,\ket{\vp_2}_A)_{\H_A}(\ket{\psi_1}_B,\ket{\psi_2}_B)_{\H_B}.
+\end{equation}
+En notation braket, on note ${_A}\bra{\vp}\otimes{_B}\bra{\psi}$ le bra associé à $\ket{\vp}_A\otimes\ket{\psi}_B$. La définition précédente donne alors
+\begin{equation}
+    ({_A}\bra{\vp_1}\otimes{_B}\bra{\psi_1})(\ket{\vp_2}_A\otimes\ket{\psi_2}_B) = \braket{\vp_1}{\vp_2}\braket{\psi_1}{\psi_2}.
+\end{equation}
+
+\paragraph*{Bases orthonormées.} En utilisant cette définition du produit scalaire, on peut facilement montrer que si les bases $\B_A$ et $\B_B$ (introduites plus haut) sont orthonormées, alors la base $\B$ est également orthonormée. En effet,
+\begin{equation}
+    ({_A}\bra{u_i}\otimes{_B}\bra{v_l})(\ket{u_j}_A\otimes\ket{v_m}_B) = \braket{u_i}{u_j}\braket{v_l}{v_m} = \delta_{ij}\delta_{lm}.
+\end{equation}
+
+\paragraph*{Norme.} Pour rappel, la norme d'un vecteur est définie comme $\norm{\ket{\vp}}=\sqrt{\braket{\vp}}$. On trouve donc que
+\begin{equation}
+    \boxed{\norm{\ket{\vp}_A\otimes\ket{\psi}_B} = \norm{\ket{\vp}_A}\cdot\norm{\ket{\psi}_B}}.
+\end{equation}
+
+\paragraph*{Produit tensoriel d'opérateurs.} Soit $\hA$ un opérateur linéaire agissant sur $\H_A$ et $\hB$ un opérateur linéaire agissant sur $\H_B$. On peut naturellement définir l'opérateur linéaire $\hA\otimes\hB$ qui agit sur $\H_A\otimes\H_B$ comme 
+\begin{equation}
+    (\hA\otimes\hB)(\ket{\vp}_B\otimes\ket{\phi}_B) = (\hA\ket{\vp}_A)\otimes(\hB\ket{\vp}_B).
+\end{equation}
+On en déduit l'action sur un état général de $\H_A\otimes\H_B$ par linéarité.
+
+Si un opérateur $\hA$ agit sur $\H_A$, on peut facilement l'étendre en un opérateur sur $\H_A\otimes\H_B$ en prenent le produit tensoriel avec l'identité:
+\begin{equation}
+    \hA_{\text{ext}} \equiv \hA\otimes\mathbbm{1}_B.
+\end{equation}
+
+Il très utile et instrictif d'étudier la structure propre d'opérateurs de la forme $\hA\otimes\hB$. Cela sera fait lors du TP.
+
+\paragraph*{Notations.} Pour simplifier les notations, on omet souvent d'écrire le symbole ``$\otimes$'' du produit tensoriel. Les notations suivantes sont couramment utilisées:
+\begin{equation}
+    \ket{\vp}_A\otimes\ket{\psi}_B \equiv \ket{\vp}_A\ket{\psi}_B \equiv \ket{\vp}\ket{\psi} \equiv \ket{\vp;\psi}.
+\end{equation}
+
+\paragraph*{Produit tensoriel en coordonnées.} Reprenons les base $\B_A$ et $\B_B$ de $\H_A$ et $\H_B$ qui ont été introduites plus haut. Si
+\begin{align}
+    \ket{\vp}_A &= \sum_i a_i\ket{u_i}_A,\\
+    \ket{\psi}_B &= \sum_l b_i\ket{v_l}_B,
+\end{align}
+quelles sont les coordonnées de $\ket{\vp}_A\otimes\ket{\vp}_B$ dans la base $\B$ ? On peut montrer que
+\begin{equation}
+    \ket{\vp}_A\otimes\ket{\vp}_B = \sum_{i,l} a_ib_l\ket{u_i}_A\otimes\ket{v_l}_B.
+\end{equation}
+On peut donc voir que le produit tensoriel agit sur les coordonnées comme suit:
+\begin{equation}
+    \begin{bmatrix}
+        a_1\\
+        \vdots\\
+        a_{n_A}
+    \end{bmatrix}\otimes
+    \begin{bmatrix}
+        b_1\\
+        \vdots\\
+        b_{n_B}
+    \end{bmatrix}=
+    \begin{bmatrix}
+        a_1b_1\\
+        \vdots\\
+        a_1b_{n_B}\\
+        \vdots\\
+        \vdots\\
+        a_{n_A}b_1\\
+        \vdots\\
+        a_{n_A}b_{n_B}
+    \end{bmatrix}.\label{eq:prodKronvecteurs}
+\end{equation}
+Le résultat est bien un vecteur avec $n_An_B$ coordonnées. Le symbole ``$\otimes$'' qui apparait dans cette équation n'est pas celui du produit tensoriel à proprement parlé car ce n'est pas une opération entre éléments de $\H_A$ et de $\H_B$ mais entre leurs coordonnées. Cette opération est appellée \emph{produit de Kronecker}. On la note avec le même symbole que le produit tensoriel.
+
+Si $\hA$ et $\hB$ sont deux opérateurs linéaires sur $\H_A$ et $\H_B$ respectivement, le même raisonnement peut être fait pour les matrices qui les représente $\hA$ et $\hB$. Nous trouvons que la matrice qui représente $\hA\otimes\hB$ dans la base $\B$ est donnée par le produit de Kronecker de la matrice qui représente $\hA$ dans la base $\B_A$ et de la matrice qui représente $\hB$ dans la base $\B_A$:
+\begin{align}
+    &\begin{bmatrix}
+        A_{11} & \cdots & A_{1n_A}\\
+        \vdots & & \vdots\\
+        A_{n_A1} & \cdots & A_{n_An_A}
+    \end{bmatrix}\otimes
+    \begin{bmatrix}
+        B_{11} & \cdots & B_{1n_B}\\
+        \vdots & & \vdots\\
+        B_{n_B1} & \cdots & B_{n_Bn_B}
+    \end{bmatrix}\\
+    &\qquad=
+    \begin{bmatrix}
+        A_{11}B_{11} & \cdots & A_{11}B_{1n_B} & \cdots\cdots & A_{1n_A}B_{11} & \cdots & A_{1n_A}B_{1n_B}\\
+        \vdots & & \vdots & & \vdots & & \vdots \\
+        A_{11}B_{n_B1} & \cdots & A_{11}B_{n_Bn_B} & \cdots\cdots & A_{1n_A}B_{n_B1} & \cdots & A_{1n_A}B_{n_Bn_B} \\
+        \vdots & & \vdots & & \vdots & & \vdots \\
+        \vdots & & \vdots & & \vdots & & \vdots \\
+        A_{n_A1}B_{11} & \cdots & A_{n_A1}B_{1n_B} & \cdots\cdots & A_{n_An_A}B_{11} & \cdots & A_{n_An_A}B_{1n_B}\\
+        \vdots & & \vdots & & \vdots & & \vdots \\
+        A_{n_A1}B_{n_B1} & \cdots & A_{n_A1}B_{n_Bn_B} & \cdots\cdots & A_{n_An_A}B_{n_B1} & \cdots & A_{n_An_A}B_{n_Bn_B}
+    \end{bmatrix}\\
+    &\qquad\equiv
+    \begin{bmatrix}
+        A_{11}B & \cdots & A_{1n_A}B\\
+        \vdots & & \vdots\\
+        A_{n_A1}B & \cdots & A_{n_An_A}B
+    \end{bmatrix}
+\end{align}
+Notons que cette relation implique en particulier la relation \eqref{eq:prodKronvecteurs}. Le résultat est bien une matrice $n_An_B\times n_An_B$.
+
+\paragraph*{Produit tensoriel multiples.} Par simpliciter, nous avons discuté le cas du produit tensoriel à deux facteurs. On peut généraliser à n'importe quel nombre de facteurs par associativité. Par exemple, pour trois facteurs, tout élément de $\H_A\otimes\H_B\otimes\H_C$ est de la forme
+\begin{eqnarray}
+    \ket{\psi}=\sum_{i,l,p} c_{ilp} \ket{u_i}_A\otimes\ket{v_l}_B\otimes\ket{w_p}_C
+\end{eqnarray}
+si $\{\ket{u_i}_A\}$,$\{\ket{v_l}_B\}$ et $\{\ket{w_p}_C\}$ sont des bases de $\H_A$, $\H_B$ et $\H_C$ respectivement.
+
+\section{Intrication quantique}
+
+\paragraph*{Systèmes composites.} Nous avons vu qu'en mécanique quantique un système est caractérisé par la donnée d'un espace de Hilbert (contenant les états) et d'un Hamiltonien (décrivant la dynamique). De ce point de vue, nous avons décrit un système avec une particule, avec un oscillateur harmonique, etc. Comment faire pour décrire plusieurs objets en même temps ? Par exemple un système avec deus particules. Autrement dis, si
+\begin{itemize}
+    \item le système $A$ est décrit par l'espace de Hilbert $\H_A$ et l'Hamiltonien $\hH_A$,
+    \item le système $B$ est décrit par l'espace de Hilbert $\H_B$ et l'Hamiltonien $\hH_B$,
+\end{itemize}
+comment faire pour décrire le système composé de $A$ et $B$ ? Plus encore, comment introduire une potentielle intéraction entre les deux systèmes ? 
+
+La réponse à ces questions peut être vue comme un nouveau postulat: le nouveau système est donné par l'espace de Hilbert
+\begin{equation}
+    \H_{AB} = \H_1\otimes\H_B
+\end{equation}
+et par l'Hamiltonien
+\begin{equation}
+    \hH_{AB} = \hH_A\otimes\mathbbm{1}_B+\mathbbm{1}_A\otimes\hH_B+\hH^{\text{int}}_{AB}
+\end{equation}
+où le dernier terme tient compte des potentielles intéractions entre les deux systèmes. Bien que très important, nous ne traiterons pas ce cas et considérerons que $\hH^{\text{int}}_{AB}=\hat{0}$. \\
+
+Malgré le fait qu'il n'y ait pas de terme d'intéraction dans l'Hamiltonien, nous verrons que les systèmes $A$ et $B$ sont loin d'être indépendants, et cela du à un phénomène appellé \emph{intrication}. Cette propriété très spéciale des systèmes composites quantiques contribue grandement aux différences fondamentales qu'il y a entre la physique quantique et la physique classique (voir la citation de Schrödinger dans le cours). 
+
+L'intrication est source de beaucoup de phénomènes fascinants comme la téléportation quantique, les algorithmes quantiques, etc (voir le cours sur l'\emph{information quantique} et l'\emph{informatique quantique} donné par Stefano Pironio en Master).
+
+\paragraph*{États produits et états intriqués.} Il est important de remarquer qu'un état de $\H_A\otimes\H_B$ n'est pas nécéssairement le produit tensoriel d'un état de $\H_A$ et d'un état de $\H_B$. Si c'est le cas, on dit que c'est un \emph{état produit} (ou \emph{état non-intriqué}), si non on dit que c'est un \emph{état intriqué}. De manière générale, tout état est une combinaison linéaire d'états produits.
+
+Voici quelques exemples: soient $\B_A=\{\ket{0}_A,\ket{1}_A\}$ et $\B_B=\{\ket{0}_B,\ket{1}_B\}$ des bases orthonormées de $\H_A$ et $\H_B$ respectivement. Alors
+\begin{itemize}
+    \item l'état $\ket{0}_A\otimes\ket{0}_B$ n'est pas intriqué,
+    \item l'état $\ket{0}_A\otimes\ket{0}_B+\ket{1}_A\otimes\ket{1}_B$ est intriqué car il est impossible de le réécrire sous forme de produit,
+    \item l'état $\ket{0}_A\otimes\ket{0}_B+\ket{0}_A\otimes\ket{1}_B+\ket{1}_A\otimes\ket{0}_B+\ket{1}_A\otimes\ket{1}_B$ n'est pas intriqué car on peut le réécrire comme $(\ket{0}_A+\ket{1}_A)\otimes(\ket{0}_B+\ket{1}_B)$.
+\end{itemize}
+
+Déterminer si un état est intriqué ou non avec certitude peut être une tâche délicate. Le résultat suivant fournit une méthode systématique pour répondre la question.
+
+\paragraph*{Théorème (décomposition de Schmidt).} Pour tout état $\ket{\psi}\in\H_A\otimes\H_B$, il existe une base orthonormée $\{\ket{e_i}\}$ de $\H_B$ et une base orthonormée $\{\ket{f_l}\}$ de $\H_B$ telles que
+\begin{equation}
+    \ket{\psi}=\sum^{\min(n_A,n_B)}_{i} \lambda_i \ket{e_i}\otimes\ket{f_i}\label{eq:decompSchmidt}
+\end{equation}
+avec $\lambda_i\in\R^+$ et $\sum_i\lambda^2_i=1$. Les facteurs $\lambda_i$ sont appellés \emph{coefficeint de Schmidt}. La décoposition \eqref{eq:decompSchmidt}, appellée \emph{décomposition de Schmidt} de $\ket{\psi}$, est unique, modulo les permutations des coefficeints de Schmidt. Le nombre de coefficients de Schmidt non-nuls est appelé le \emph{rang de Schmidt} de $\ket{\psi}$ et noté $\SR(\ket{\psi})$.
+
+Il y a deux choses importantes à remarquer dans la décomposition de Schmidt:
+\begin{itemize}
+    \item on ne somme pas sur tous les vecteurs de base $\ket{e_i}\otimes\ket{f_l}$, mais juste sur les vecteurs ayant les mêmes indices,
+    \item les coefficients de Schmidt ne sont pas complexes, il sont nécessairement réels et non-négatifs.
+\end{itemize}
+
+La décomposition de Schmidt est très utilile pour déterminer si un état est intriqué ou pas. En effet, on peut montrer qu'un état est intriqué si et seulement s'il est sous forme d'un produit dans sa décomposition de Schmidt. Autrement dit, 
+\begin{equation}
+    \SR(\ket{\psi})=
+    \begin{cases}
+        1 &\text{si et seulement si l'état n'est pas intriqué},\\
+        \geq2 &\text{si et seulement si l'état est intriqué}.
+    \end{cases}
+\end{equation}
+En quelque sorte, la décomposition de Schmidt d'un état est la forme ``la plus proche'' qu'il peut avoir d'un état produit. 
+
+Il y a une méthode systématique pour calculer la décomposition de Schmidt d'un état mais nous ne la détaillerons pas ici. Nous nous limiterons aux états pour lesquels la décomposition de Schmidt est accessible sans trop de calculs.
 
 
 
