@@ -1,0 +1,65 @@
+\documentclass[11pt,a4paper,oneside]{article}
+
+\usepackage{import}
+
+\import{Packages/}{custom_packages.tex}
+\import{Packages/}{custom_macros.tex}
+
+\title{Particule dans un puits de potentiel}
+\author{Louan Mol}
+
+\begin{document}
+
+\begin{center}
+    {\huge \textbf{Particule dans un puits de potentiel}}
+\end{center}
+
+\vspace{1cm}
+
+Le cas d'une particule dans un puits de potentiel est en mécanique quantique est très important et peut-être perturbant lorsque l'on essaye d'aller dans les détails. En particulier, c'est une situation simple sur laquelle on peut s'entrainer à bien comprendre l'utilisation des syémtries.
+
+\paragraph{Énoncé.} Considérons une particule de masse $m$ à une dimension dans un \emph{puits de potentiel} de largeur $L$:
+\begin{equation}
+    V(x)=
+    \begin{cases}
+        0,\quad &\text{ si } x\in]-L/2,L/2[,\\
+        +\infty,\quad &\text{ si } x\notin]-L/2,L/2[.
+    \end{cases}
+\end{equation}
+On dit souvent que la particule est dans une boîte (unidimensionnelle). Nous cherchons à calculer les états stationnaires de ce système. L'équation à résoudre est donc
+\begin{equation}
+    -\frac{\hbar^2}{2m}\dv[2]{}{x}\vp(x)=E\vp(x),\qquad E\in\R \label{eq:vp}
+\end{equation}
+où $\vp$ est la partie spatiale de la fonction d'onde, c'est-à-dire que la fonction d'onde est $\psi(x,t)=\vp(x)e^{-\frac{i}{\hbar}Et}$. La solution de \eqref{eq:vp} doit satisfaire deux propriétés:
+\begin{enumerate}
+    \item \textbf{Conditions aux bords}: le fait que le potentiel soit infini hors du puits implique que la finction d'onde doit s'annuler dans cette partie de l'espace et donc que
+    \begin{align}
+        \psi(L/2) &= 0,\\
+        \psi(-L/2) &= 0.
+    \end{align}
+    \item \textbf{Normalisation} : par définition, une fonction d'onde doit être normée, donc
+    \begin{equation}
+        \int_{-L/2}^{L/2}\abs{\vp(x)}^2\d x = 1.
+    \end{equation}
+\end{enumerate}
+
+
+\paragraph*{Symétrie.} En analysant le potentiel, on peut voir que ce dernier est symétrique sur la transformation de coordonnées
+\begin{equation}
+    x\mapsto-x.
+\end{equation}
+Comme le terme cinétique est également invariant sous cette transformation, l'Hamiltonien au complet est invariant sous cette transformation. Cette dernière est donc une symétrie du système.
+
+\section{Résolution sans symétrie}
+
+\section{Résolution avec symétrie : méthode A}
+
+\section{Résolution avec symétrie : méthode B}
+
+\section{Ajout d'une barrière infiniment maince}
+
+
+
+
+
+\end{document}
