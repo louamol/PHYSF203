@@ -51,17 +51,97 @@ où $\vp$ est la partie spatiale de la fonction d'onde, c'est-à-dire que la fon
 Comme le terme cinétique est également invariant sous cette transformation, l'Hamiltonien au complet est invariant sous cette transformation. Cette dernière est donc une symétrie du système.
 ... 
 
-En général, les syémtries d'un problème constituent un outil très important pour mieux comprendre ce dernier. Dans ntore cas les syémtries sont très pratiques pour simplifier la résolution du problème. Cepedant, il doit aussi être possible en principe, de résoudre le problème sans utiliser les symétries. Par exemple, si l'on n'a pas remarqué qu'une syémtrie était présente.
+En général, les symétries d'un problème constituent un outil très important pour mieux comprendre ce dernier. Dans ntore cas les syémtries sont très pratiques pour simplifier la résolution du problème. Cepedant, il doit aussi être possible en principe, de résoudre le problème sans utiliser les symétries. Par exemple, si l'on n'a pas remarqué qu'une syémtrie était présente.
 
 Dans la suite, nous allons résoudre le problème de trois manière différentes : d'abord sans utiliser les syémtries, et ensuite en utilisant les symétries, avec deux approches différentes.
 
 \section{Résolution sans symétrie}
 
-\section{Résolution avec symétrie : méthode A}
+\textcolor{blue}{(work in progress)}
 
-\section{Résolution avec symétrie : méthode B}
+\section{Résolution avec symétrie}
 
-\section{Ajout d'une barrière infiniment maince}
+\subsection{Méthode A}
+
+\begin{enumerate}
+    \item On résout l'équation \eqref{eq:vp} dans la région $[-L/2,L/2]$. La solution générale est
+    \begin{equation}
+        \vp(x)=Ae^{ikx}+Be^{-ikx},\qquad A,B\in\C.
+    \end{equation}
+    \item On impose que la solution soit paire ou impaire:
+    \begin{align}
+        \text{Paire} &: \vp(x)=\vp(-x) \Rightarrow A=B,\text{ donc } \vp^\P(x) = 2A^\P\cos(kx)\\
+        \text{Impaire} &: \vp(x)=-\vp(-x) \Rightarrow A=-B,\text{ donc } \vp^\I(x) = 2iA^\I\sin(kx)
+    \end{align}
+    \item On impose les conditions aux bords:
+    \begin{align}
+        \vp^\P(L/2)&=0 \Rightarrow k=\frac{2\pi}{L}\left( n+\frac{1}{2} \right)\equiv k^\P_n (n\in\N)\\
+        \vp^\I(L/2)&=0 \Rightarrow k=\frac{2\pi}{L}n\equiv k^\I_n (n\in\N_0)
+    \end{align}
+    Il n'est nécessaire d'imposer que une des deux conditions car les fonctions sont paires ou impaires, l'autre condition sera automatiquement satisfaite.
+    \item Finalement, nous imposons que les fonction d'onde soient normées, on trouve
+    \begin{align}
+        A^\P &= \frac{1}{\sqrt{2L}},\\
+        A^\I &= -\frac{i}{\sqrt{2L}}.
+    \end{align}
+\end{enumerate}
+Les solutions sont finalement
+\begin{align}
+    \vp_n^\P(x) &= \sqrt{\frac{2}{L}}\cos(k^\P_nx),\qquad (n\in\N)\label{eq:solf1}\\
+    \vp_n^\I(x) &= \sqrt{\frac{2}{L}}\sin(k^\I_nx),\qquad (n\in\N_0).\label{eq:solf2}
+\end{align}
+
+\subsection{Méthode B}
+
+\begin{enumerate}
+    \item On résout l'équation \eqref{eq:vp} dans la région $[0,L/2]$. La solution générale est
+    \begin{equation}
+        \vp(x)=Ae^{ikx}+Be^{-ikx},\qquad A,B\in\C.
+    \end{equation}
+    \item On prolonge cette solution sur tout $[-L/2,L/2]$. Il existe deux manières de la prolonger:
+    \begin{align}
+        \text{Paire} &: \vp^\P(x)=
+        \begin{cases}
+            A^\P e^{-ikx}+B^\P e^{ikx}, x<0\\
+            A^\P e^{ikx}+B^\P e^{-ikx}, x>0
+        \end{cases}\\
+        \text{Impaire} &: \vp^\I(x)=
+        \begin{cases}
+            -A^\I e^{-ikx}-B^\I e^{ikx}, x<0\\
+            A^\I e^{ikx}+B^\I e^{-ikx}, x>0.
+        \end{cases}
+    \end{align}
+    \item Après l'étape précédente, il faut s'assurer que la fonction résultat est toujours $C^1$ partout, et en particulier en $x=0$. On commence donc par imposer que les solutions soient continues:
+    \begin{align}
+        \vp^\P(0^+)-\vp^\P(0^-)&=0 : \text{ toujours satisfait}\\
+        \vp^\P(0^+)-\vp^\I(0^-)&=0 \Rightarrow A^\I = -B^\I
+    \end{align}
+    et ensuite qe leur dérivée soit continue:
+    \begin{align}
+        \p_x\vp^\P(0^+)-\p_x\vp^\P(0^-)&=0 \Rightarrow A^\P = B^\P\\
+        \p_x\vp^\P(0^+)-\p_x\vp^\I(0^-)&=0 : \text{ toujours satisfait}
+    \end{align}
+    On obtient donc les solutions suivantes:
+    \begin{align}
+        \vp^\P(x) &= 2A^\P\cos(kx),\\
+        \vp^\I(x) &= 2iA^\I\sin(kx).
+    \end{align}
+    À ce stade, nous avons obtenu exactement les mêmes expressins qu'à l'étape 2 de la méthode A. il ne reste plus qu'à imposer les conditions aux bords et la normalisation, exactement comme dans la méthode A, et tous els résultats seront les mêmes.
+    \item On impose les conditions aux bords: voir étape 3 de la méthode A.
+    \item Nous imposons la normalization : voir étape 4 de la méthode A.
+\end{enumerate}
+Les solutions finales sont exactement les mêmes que celles obtenues par la méthode A: \eqref{eq:solf1} et \eqref{eq:solf2}.
+
+\subsection{Comparaison des méthodes}
+
+    Nous pouvons conclure que les deux méthodes sont exactement équivalentes. Cependant, cela vient du fait que, dans la méthode B, nous avons pensé à imposé que que la solution soit $C^1$ en $x=0$. C'est ce critère qui nous permet de retrouver les mêmes expression que dans la méthode A. Cette étape n'était pas nécessaire dans la méthode A car, par construction\footnote{On résout directement dans le puit entier.}, les solutions sont $C^1$ partout.
+
+\section{Ajout d'une barrière infiniment mince}
+
+    Si l'on ajoute une barrière de potentielle infiniment mince au milieu du puit de potentiel, la fonction d'onde n'est plus $C^1$ en $x=0$. Elle est continue, mais sa dérivée est discontinue et la condition de raccord dépend de la barrière de potentielle. Comme la fonction d'onde n'est plus $C^1$, on ne peut pas utiliser la méthode A, ni la méthode ou l'ont ne tient pas compte de la syémtire. En effet, ces méthodes ne peuvent que donner lieu que à des soltuion $C^1$ partout, par construction.
+
+%\textcolor{blue}{(work in progress)}
+
 
 
 
